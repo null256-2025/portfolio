@@ -8,59 +8,56 @@ type PagesConfig = {
       title: string;
       description: string;
     };
-    // featuredDescription: string;
   };
 };
 
 export const pagesConfig: PagesConfig = {
   home: {
     title: "Home",
-    description: "Welcome to my portfolio website.",
+    description: "ポートフォリオサイトへようこそ。",
     metadata: {
       title: "Home",
-      description: "Naman Barkiya's portfolio website.",
+      description: "小森貴文のポートフォリオサイト",
     },
   },
   skills: {
     title: "Skills",
-    description: "Key skills that define my professional identity.",
+    description: "これまでに培ってきた主なスキル一覧。",
     metadata: {
       title: "Skills",
-      description:
-        "Naman Barkiya's key skills that define his professional identity.",
+      description: "小森貴文が持つスキルの概要",
     },
   },
   projects: {
     title: "Projects",
-    description: "Showcasing impactful projects and technical achievements.",
+    description: "これまでに手がけた主要なプロジェクトや成果を紹介します。",
     metadata: {
       title: "Projects",
-      description: "Naman Barkiya's projects in building web applications.",
+      description: "小森貴文のプロジェクトと実績",
     },
   },
   contact: {
-    title: "お問い合わせ",
-    description: "まずは30分の無料ヒアリングから。夜・土日もご相談ください。",
+    title: "Contact",
+    description: "まずは30分の無料ヒアリングから。夜・土日もご相談いただけます。",
     metadata: {
-      title: "お問い合わせ",
+      title: "Contact",
       description: "お問い合わせフォーム",
     },
   },
   resume: {
     title: "Resume",
-    description: "Naman Barkiya's resume.",
+    description: "職務経歴書を閲覧いただけます。",
     metadata: {
       title: "Resume",
-      description: "Naman Barkiya's resume.",
+      description: "小森貴文の職務経歴書",
     },
   },
   experience: {
     title: "Experience",
-    description: "Professional journey and career timeline.",
+    description: "これまでのキャリアの流れや経験をまとめています。",
     metadata: {
       title: "Experience",
-      description:
-        "Naman Barkiya's professional journey and experience timeline.",
+      description: "小森貴文のキャリアと職務経験の詳細",
     },
   },
 };

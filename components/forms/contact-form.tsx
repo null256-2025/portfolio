@@ -1,6 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -16,23 +18,23 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useModalStore } from "@/hooks/use-modal-store";
+import { useToast } from "@/components/ui/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(3, {
-    message: "Name must contain at least 3 characters.",
+    message: "お名前は3文字以上で入力してください。",
   }),
-  email: z.string().email("Please enter a valid email."),
+  email: z.string().email("有効なメールアドレスを入力してください。"),
   message: z.string().min(10, {
-    message: "Please write something more descriptive.",
+    message: "もう少し具体的にご記入ください。（10文字以上）",
   }),
   social: z.string().url().optional().or(z.literal("")),
 });
 
 export function ContactForm() {
-  const storeModal = useModalStore();
-
-  // const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -44,8 +46,9 @@ export function ContactForm() {
     },
   });
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -55,18 +58,29 @@ export function ContactForm() {
         body: JSON.stringify(values),
       });
 
-      form.reset();
+      const data = await response.json();
 
-      if (response.status === 200) {
-        storeModal.onOpen({
-          title: "ありがとうございます",
-          description:
-            "送信ありがとうございます。48時間以内に返信します。",
-          icon: Icons.successAnimated,
+      if (response.ok) {
+        // 成功時の処理
+        form.reset();
+        router.push("/contact/thanks");
+      } else {
+        // APIからのエラーレスポンス
+        toast({
+          title: "送信エラー",
+          description: data.error || "メールの送信に失敗しました。",
+          variant: "destructive",
         });
       }
     } catch (err) {
-      console.log("Err!", err);
+      console.error("送信エラー:", err);
+      toast({
+        title: "送信エラー",
+        description: "ネットワークエラーが発生しました。しばらく時間をおいて再度お試しください。",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -83,11 +97,8 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>お名前</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your name" {...field} />
+                <Input placeholder="例: 山田 太郎" {...field} />
               </FormControl>
-              {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -99,7 +110,7 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>メールアドレス</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input placeholder="例: sample@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -112,29 +123,38 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>ご相談内容</FormLabel>
               <FormControl>
-                <Textarea placeholder="Enter your message" {...field} />
+                <Textarea placeholder="ご相談やご質問をご自由にご記入ください。" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+        {/* 任意入力（SNSリンクなど）が必要なら復活 */}
+        {/* 
         <FormField
           control={form.control}
           name="social"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Social (optional)</FormLabel>
+              <FormLabel>SNSリンク（任意）</FormLabel>
               <FormControl>
-                <Input placeholder="Link for social account" {...field} />
+                <Input placeholder="SNSやWebサイトのURL" {...field} />
               </FormControl>
-              {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
-        />
-        <Button type="submit">送信する</Button>
+        /> 
+        */}
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? (
+            <>
+              <Icons.spinner className="w-4 h-4 mr-2 animate-spin" />
+              送信中...
+            </>
+          ) : (
+            "送信する"
+          )}
+        </Button>
       </form>
     </Form>
   );

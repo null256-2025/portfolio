@@ -10,21 +10,21 @@ interface SocialInterface {
 export const SocialLinks: SocialInterface[] = [
   {
     name: "X",
-    username: "@your_id",
+    username: "@Null256x",
     icon: Icons.X,
-    link: "https://x.com/your_id",
+    link: "https://x.com/Null256x",
   },
   {
     name: "LinkedIn",
-    username: "your_id",
+    username: "%E8%B2%B4%E6%96%87-%E5%B0%8F%E6%A3%AE-53b079376/",
     icon: Icons.linkedin,
-    link: "https://www.linkedin.com/in/your_id",
+    link: "https://www.linkedin.com/in/%E8%B2%B4%E6%96%87-%E5%B0%8F%E6%A3%AE-53b079376/",
   },
   {
     name: "note",
-    username: "your_id",
-    icon: Icons.post,
-    link: "https://note.com/your_id",
+    username: "null256",
+    icon: Icons.note,
+    link: "https://note.com/null256",
   },
   {
     name: "YouTube",

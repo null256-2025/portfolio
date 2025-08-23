@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ChipContainer from "@/components/ui/chip-container";
 import { ResponsiveTabs } from "@/components/ui/responsive-tabs";
-import { experiences } from "@/config/experience";
+import { experiences, ExperienceInterface } from "@/config/experience";
 import { siteConfig } from "@/config/site";
 
 interface ExperienceDetailPageProps {
@@ -58,7 +58,7 @@ export async function generateMetadata({
 export default function ExperienceDetailPage({
   params,
 }: ExperienceDetailPageProps) {
-  const experience = experiences.find((c) => c.id === params.expId);
+  const experience: ExperienceInterface | undefined = experiences.find((c) => c.id === params.expId);
 
   if (!experience) {
     redirect("/experience");
@@ -74,17 +74,54 @@ export default function ExperienceDetailPage({
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
               Role Summary
             </h3>
+
+            {/* ▼ Hero Image：Role Summary直下 */}
+            {experience.heroImage && (
+              <div className="mb-6 overflow-hidden rounded-lg border border-border">
+                <Image
+                  src={experience.heroImage}
+                  alt={`${experience.position} hero`}
+                  width={1200}
+                  height={630}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+            )}
+
             <ul className="space-y-3">
               {experience.description.map((desc, idx) => (
-                <li
-                  key={idx}
-                  className="text-base leading-relaxed flex items-start gap-3"
-                >
+                <li key={idx} className="text-base leading-relaxed flex items-start gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                   {desc}
                 </li>
               ))}
             </ul>
+
+            {/* ▼ Related Links */}
+            {experience.links?.length ? (
+              <div className="mt-6">
+                <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
+                  Related Links
+                </h4>
+                <ul className="space-y-2">
+                  {experience.links.map((l, i) => (
+                    <li key={i} className="text-base leading-relaxed">
+                      <a
+                        href={l.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-primary hover:underline"
+                      >
+                        <Icons.link className="w-4 h-4" />
+                        <span>{l.label}</span>
+                        <Icons.externalLink className="w-3.5 h-3.5 opacity-70" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </AnimatedSection>
       ),
@@ -140,7 +177,7 @@ export default function ExperienceDetailPage({
           <Button variant="ghost" size="sm" className="mb-4" asChild>
             <Link href="/experience">
               <Icons.chevronLeft className="mr-2 h-4 w-4" />
-              Back to Experience
+              経験一覧に戻る
             </Link>
           </Button>
         </AnimatedSection>

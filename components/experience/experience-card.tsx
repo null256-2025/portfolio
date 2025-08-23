@@ -98,10 +98,10 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
           className="rounded-lg w-full sm:w-auto"
           asChild
         >
-          <Link href={`/experience/${experience.id}`}>
-            View Details
+            <Link href={`/experience/${experience.id}`}>
+            詳細を見る
             <Icons.chevronRight className="ml-2 h-4 w-4" />
-          </Link>
+            </Link>
         </Button>
       </div>
     </div>

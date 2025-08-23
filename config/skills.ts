@@ -10,37 +10,37 @@ export interface skillsInterface {
 export const skillsUnsorted: skillsInterface[] = [
   {
     name: "React",
-    description: "Craft interactive user interfaces using components, state, props, and virtual DOM.",
+    description: "コンポーネントや状態管理、仮想DOMを用いて、動的で使いやすいUIを構築します。",
     rating: 5,
     icon: Icons.react,
   },
   {
     name: "Next.js",
-    description: "Effortlessly build dynamic apps with routing, layouts, loading UI, and API routes.",
+    description: "ルーティングやレイアウト、APIルートを活用して、高速で柔軟なWebアプリを構築します。",
     rating: 5,
     icon: Icons.nextjs,
   },
   {
     name: "TypeScript",
-    description: "Enhance JavaScript with static types, making code more understandable and reliable.",
+    description: "静的型付けによってコードの可読性と信頼性を高め、保守性の高い開発を実現します。",
     rating: 5,
     icon: Icons.typescript,
   },
   {
     name: "Tailwind CSS",
-    description: "Design beautiful, modern websites faster with a utility-first CSS framework.",
+    description: "ユーティリティクラスを活用し、モダンで美しいデザインを効率的に実装します。",
     rating: 5,
     icon: Icons.tailwindcss,
   },
   {
     name: "Node.js",
-    description: "Run JavaScript on the server side, enabling dynamic and responsive applications.",
+    description: "サーバーサイドでJavaScriptを実行し、動的で拡張性のあるアプリケーションを開発します。",
     rating: 4,
     icon: Icons.nodejs,
   },
   {
     name: "Vercel",
-    description: "Deploy websites with zero configuration, automatic scaling, and serverless functions.",
+    description: "ゼロ設定でデプロイが可能。自動スケーリングやサーバーレス機能に対応したモダンなホスティング環境を提供します。",
     rating: 4,
     icon: Icons.vercel,
   },

@@ -101,7 +101,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                 asChild
               >
                 <Link href={`/experience/${experience.id}`}>
-                  View Details
+                  詳細を見る
                   <Icons.chevronRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
