@@ -60,7 +60,20 @@ export type ValidSkills =
   | "FastAPI"
   | "SQL"
   | "NoSQL"
-  | "Framer Motion";
+  | "Framer Motion"
+  // 追加分
+  | "Microsoft365"
+  | "Windows"
+  | "Linux"
+  | "Networking"
+  | "DomainDNS"
+  | "ProjectManagement"
+  | "SlideDesign"
+  | "Communication"
+  | "Dify"
+  | "ChatGPT"
+  | "Unity"
+  | "GitLab";
 
 export type ValidCategory =
   | "Full Stack"
