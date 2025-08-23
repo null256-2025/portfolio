@@ -1,0 +1,140 @@
+{
+  "siteMeta": {
+    "lang": "ja",
+    "title": "KOMORI TAKAFUMI | ポートフォリオ",
+    "description": "AI×自動化×フロントエンドで、個人と中小企業の成長を加速します。3日で動くPoC、30日で現場運用へ。",
+    "ogImage": "/images/ogp.jpg"
+  },
+
+  "hero": {
+    "name": "KOMORI TAKAFUMI",
+    "headline": "AI × 自動化 × フロントエンド",
+    "sub": "手作業30分を3分に。生成AIとウェブ技術で“すぐに使える”仕組みを作ります。",
+    "ctaPrimary": { "label": "プロジェクトを見る", "href": "#projects" },
+    "ctaSecondary": { "label": "お問い合わせ", "href": "#contact" },
+    "photo": "/images/profile.png",
+    "location": "大阪・梅田 / 夜・土日対応可"
+  },
+
+  "about": {
+    "title": "自己紹介",
+    "body": "大阪在住のフロントエンドエンジニア／AI開発者。社内AI推進担当として、業務の自動化やデータ活用を設計・実装してきました。人前での説明やワークショップが得意で、難しいことを“わかりやすく”形にします。いまはソロプレーナーとして、個人・小規模事業者の課題を素早くPoC→運用までつなぐ伴走をしています。",
+    "highlights": [
+      "React / Next.js によるフロント実装",
+      "ChatGPT・API連携での自動化設計（BYOK対応）",
+      "YouTubeチャンネル分析MVPの開発",
+      "ワークショップ/研修の企画と登壇"
+    ]
+  },
+
+  "projects": {
+    "title": "実績・プロジェクト",
+    "items": [
+      {
+        "title": "TrendTune（YouTube分析MVP）",
+        "period": "2025",
+        "summary": "タグ×3で“伸び筋”を3秒で可視化。API最適化とキャッシュで無料枠でも安定運用。",
+        "details": [
+          "段階的フィルタリング＋IndexedDBキャッシュでAPIクォータを約77.7%削減",
+          "プログレッシブ検索で最初の結果を即返し、追加ロードで深掘り",
+          "BYOK（ブラウザ保存）でキーをサーバー送信せず安全に運用"
+        ],
+        "tech": ["React", "Next.js", "YouTube Data API", "IndexedDB", "Vercel"],
+        "links": {
+          "demo": "https://example.com/demo", 
+          "repo": "https://github.com/yourname/trendtune"
+        },
+        "thumb": "/images/projects/trendtune.png"
+      },
+      {
+        "title": "AI食材活用アシスタント",
+        "period": "2024–2025",
+        "summary": "冷蔵庫の食材を自動で活用。レシピ提案と買い物リストを生成するAIアシスタント。",
+        "details": [
+          "冷蔵庫の余り食材を無駄にしないように、AIが料理のレシピを提案するLINEボット。",
+          "食材を入力するだけで、和食・中華・洋食など様々なジャンルの料理を提案。",
+          "会話の文脈を保持しながら、食材の組み合わせや調理方法についても詳しくアドバイスします。",
+          "1日の利用制限や自動リセット機能により、サービスの安定性を確保しています。"
+        ],
+        "tech": ["GAS", "Dify", "LINE API"],
+        "links": {},
+        "thumb": "/images/projects/syokuzai.png"
+      },
+      {
+        "title": "生成AIワークショップ（企業/コミュニティ向け）",
+        "period": "2024–2025",
+        "summary": "90–120分で“明日から使える”生成AI活用。実務例を交えたハンズオン形式。",
+        "details": [
+          "プロンプト設計の基礎〜業務テンプレ化までを実演",
+          "ノーコード×APIで小さな自動化を体験",
+          "参加者満足度の高い“実務直結”コンテンツ"
+        ],
+        "tech": ["ChatGPT", "Make/Zapier", "GAS", "Next.js"],
+        "links": { "deck": "https://example.com/workshop-deck" },
+        "thumb": "/images/projects/seminar.png"
+      }
+    ]
+  },
+
+  "skills": {
+    "title": "スキル & 提供できること",
+    "services": [
+      {
+        "name": "30日AIスプリント",
+        "desc": "現状ヒアリング→3日でPoC→2週間の運用伴走。まず“動くもの”から始めます。",
+        "points": ["要件すり合わせ（30分）", "3日で試作・検証", "運用フロー化・引き継ぎ"],
+        "note": "夜・土日対応可 / 小規模から"
+      },
+      {
+        "name": "YouTube運営・分析",
+        "desc": "テーマ選定・分析の自動化で、制作に集中できる体制を。",
+        "points": ["タグ×傾向分析", "レポート自動生成", "CSV出力・チーム共有"],
+        "note": "MVPのデモあり"
+      },
+      {
+        "name": "社内自動化（GAS/Slack/API）",
+        "desc": "定型作業を自動化して“1日30分のムダ”を削減。",
+        "points": ["日報/申請/集計の自動化", "アラート通知", "ログ・ダッシュボード"],
+        "note": "既存SaaSとの連携が得意です"
+      },
+      {
+        "name": "生成AIワークショップ",
+        "desc": "現場ワーク中心で“明日からの使い方”まで落とし込み。",
+        "points": ["プロンプトの型", "既存業務への当てはめ", "テンプレ配布"],
+        "note": "90–120分 / オンライン可"
+      }
+    ],
+    "stacks": [
+      "React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js",
+      "YouTube Data API", "OpenAI API", "GAS", "Slack API", "Vercel"
+    ]
+  },
+
+  "contact": {
+    "title": "お問い合わせ",
+    "body": "まずは30分の無料ヒアリングから。夜・土日もご相談ください。",
+    "form": {
+      "nameLabel": "お名前",
+      "emailLabel": "メールアドレス",
+      "messageLabel": "ご相談内容",
+      "submitLabel": "送信する",
+      "successMessage": "送信ありがとうございます。48時間以内に返信します。"
+    },
+    "socials": [
+      { "name": "X", "href": "https://x.com/your_id" },
+      { "name": "LinkedIn", "href": "https://www.linkedin.com/in/your_id" },
+      { "name": "note", "href": "https://note.com/your_id" },
+      { "name": "YouTube", "href": "https://www.youtube.com/@your_id" },
+      { "name": "GitHub", "href": "https://github.com/your_id" }
+    ]
+  },
+
+  "footer": {
+    "copy": "© 2025 Takafumi Komori",
+    "legal": [
+      { "label": "利用規約", "href": "/legal/terms" },
+      { "label": "プライバシー", "href": "/legal/privacy" }
+    ],
+    "notes": ["Powered by YouTube API（該当ページのみ表記）", "BYOK：APIキーはブラウザ保存のみ"]
+  }
+}

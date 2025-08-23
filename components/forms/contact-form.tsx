@@ -59,9 +59,9 @@ export function ContactForm() {
 
       if (response.status === 200) {
         storeModal.onOpen({
-          title: "Thankyou!",
+          title: "ありがとうございます",
           description:
-            "Your message has been received! I appreciate your contact and will get back to you shortly.",
+            "送信ありがとうございます。48時間以内に返信します。",
           icon: Icons.successAnimated,
         });
       }
@@ -81,7 +81,7 @@ export function ContactForm() {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>お名前</FormLabel>
               <FormControl>
                 <Input placeholder="Enter your name" {...field} />
               </FormControl>
@@ -97,7 +97,7 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>メールアドレス</FormLabel>
               <FormControl>
                 <Input placeholder="Enter your email" {...field} />
               </FormControl>
@@ -110,7 +110,7 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>ご相談内容</FormLabel>
               <FormControl>
                 <Textarea placeholder="Enter your message" {...field} />
               </FormControl>
@@ -134,7 +134,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">送信する</Button>
       </form>
     </Form>
   );

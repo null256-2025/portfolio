@@ -39,20 +39,11 @@ export const pagesConfig: PagesConfig = {
     },
   },
   contact: {
-    title: "Contact",
-    description: "Let's connect and explore collaborations.",
+    title: "お問い合わせ",
+    description: "まずは30分の無料ヒアリングから。夜・土日もご相談ください。",
     metadata: {
-      title: "Contact",
-      description: "Contact Naman Barkiya.",
-    },
-  },
-  contributions: {
-    title: "Contributions",
-    description: "Open-source contributions and community involvement.",
-    metadata: {
-      title: "Contributions",
-      description:
-        "Naman Barkiya's open-source contributions and community involvement.",
+      title: "お問い合わせ",
+      description: "お問い合わせフォーム",
     },
   },
   resume: {
