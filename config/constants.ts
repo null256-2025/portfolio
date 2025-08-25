@@ -1,6 +1,10 @@
 export type ValidSkills =
   | "React"
   | "TypeScript"
+  | "Next.js"
+  | "Vercel"
+  | "Tailwind CSS"
+  | "Node.js"
   | "Laravel"
   | "Vue.js"
   | "PHP"
