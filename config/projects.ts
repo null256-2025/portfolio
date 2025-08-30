@@ -115,6 +115,35 @@ export const Projects: ProjectInterface[] = [
       },
     ],
   },
+  {
+    id: "hoikuru-ai-chat-support",
+    type: "Personal",
+    companyName: "保育ルームAIチャットサポート",
+    category: ["Web Dev", "UI/UX"],
+    shortDescription: "保育士向けのAIチャットサポートシステム。日々の業務を効率化し、保育士の負担を軽減。",
+    websiteLink: "https://example.com/hoikuru",
+    githubLink: undefined,
+    techStack: ["Next.js"],
+    startDate: new Date("2025-01-01"),
+    endDate: new Date("2025-03-31"),
+    companyLogoImg: "/images/projects/hoikuruai.png",
+    descriptionDetails: {
+      paragraphs: [
+        "保育士向けのAIチャットサポートシステム。日々の業務を効率化し、保育士の負担を軽減。",
+      ],
+      bullets: [
+        "プロンプト設計の基礎〜業務テンプレ化までを実演",
+        "ノーコード×APIで小さな自動化を体験",
+        "参加者満足度の高い“実務直結”コンテンツ",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "保育ルームAIチャットサポート",
+        imgArr: ["/images/projects/hoikuruai.png"],
+      },
+    ],
+  },
 ];
 
 export const featuredProjects = Projects.slice(0, 3);
