@@ -44,6 +44,14 @@ export const skillsUnsorted: skillsInterface[] = [
     rating: 4,
     icon: Icons.vercel,
   },
+  // --- AI / Tools ---
+  {
+    name: "Figma",
+    description:
+      "UI設計・プロトタイプ作成・デザインシステム運用。開発とデザインの橋渡しをします。",
+    rating: 4,
+    icon: Icons.figma,
+  },
 ];
 
 export const skills = skillsUnsorted

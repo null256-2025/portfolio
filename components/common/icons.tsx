@@ -67,6 +67,7 @@ import {
   SiTypescript,
   SiVercel,
   SiYoutube,
+  SiFigma,
 } from "react-icons/si";
 
 export const Icons = {
@@ -130,6 +131,17 @@ export const Icons = {
   work: HiBriefcase,
   youtube: SiYoutube,
   vercel: SiVercel,
+
+  // AI / tools (fallback icons without external deps)
+  // Using existing lucide/react-icons to avoid extra packages
+  openai: Sparkles,
+  claude: Scroll,
+  suno: Music,
+  cline: Laptop,
+  dify: Settings,
+  figma: SiFigma,
+  notebooklm: FileText,
+  v0: Zap,
 
   X: ({ ...props }: LucideProps) => (
   <svg

@@ -28,6 +28,14 @@ export const pagesConfig: PagesConfig = {
       description: "小森貴文が持つスキルの概要",
     },
   },
+  ai: {
+    title: "AI",
+    description: "使用できる、また使用したことのある AI の一覧。",
+    metadata: {
+      title: "AI",
+      description: "小森貴文が扱える・使用経験のある AI ツール一覧",
+    },
+  },
   projects: {
     title: "Projects",
     description: "これまでに手がけた主要なプロジェクトや成果を紹介します。",

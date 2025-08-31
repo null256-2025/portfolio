@@ -48,6 +48,7 @@ export type ValidExpType = "Personal" | "Professional";
 export type ValidPages =
   | "home"
   | "skills"
+  | "ai"
   | "projects"
   | "experience"
   | "contact"
