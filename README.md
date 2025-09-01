@@ -1,138 +1,62 @@
-# Next.js 14 Developer Portfolio Template
+﻿# ポートフォリオサイト
 
-A modern, responsive, and SEO-optimized **Next.js 14 portfolio template** designed for developers, designers, and professionals. This open-source project helps you showcase your skills, experience, and projects with an elegant interface that stands out. Built with server-side rendering, TypeScript, and the latest web standards for optimal performance.
+このリポジトリは、私のポートフォリオサイトです。Next.js 14、TypeScript、Tailwind CSS を用いて構築し、自己紹介、スキル、職務経歴、制作物、連絡先をまとめています。
 
-## ✨ Key Features
+## 概要
+- 名前: 小森 貴文 / Komori Takafumi
+- 肩書き: フロントエンドエンジニア／AI開発者
+- 関心領域: 生成AI活用、業務自動化、フロントエンド、Next.js、YouTube運営・分析
+- 拠点: 大阪・梅田 / 夜・土日対応可
 
-- **Professional Experience Timeline**: Showcase your career journey with a visually appealing timeline
-- **Project Showcase**: Display your technical projects with detailed information and live demos
-- **Dark/Light Mode**: Professional appearance with theme support
-- **Responsive Design**: Optimized for all devices (mobile, tablet, desktop)
-- **100% Performance Score**: Fully optimized for speed and Core Web Vitals
-- **SEO-Ready**: Structured data, meta tags, and optimized content
-- **Modern Tech Stack**: Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui
-- **Easy Customization**: Well-organized code structure with minimal effort required
-- **Animations**: Subtle animations for engaging user experience
-- **Analytics Integration**: Ready for Google Analytics tracking
-- **Contact Form**: Functional contact form with validation
-- **Open Source**: Free to use and modify for your personal portfolio
+## 自己紹介
+大阪在住のフロントエンドエンジニア／AI開発者。社内AI推進担当として、業務の自動化やデータ活用を設計・実装してきました。人前での説明やワークショップが得意で、難しいことを“わかりやすく”形にします。いまはソロプレーナーとして、個人・小規模事業者の課題を素早くPoC→運用までつなぐ伴走をしています。
 
-## 🚀 Demo
+### 強み・ハイライト
+- React / Next.js によるフロント実装
+- ChatGPT・API連携での自動化設計（BYOK対応）
+- YouTubeチャンネル分析MVPの開発
+- ワークショップ/研修の企画と登壇
 
-View the live demo at [https://nbarkiya.xyz/](https://nbarkiya.xyz)
+## スキル
+- 言語: TypeScript / JavaScript
+- フレームワーク: Next.js / React / Node.js
+- ツール: Tailwind CSS / Vercel / GAS / Slack API / YouTube Data API / OpenAI API
+- 提供メニュー: 30日AIスプリント / YouTube運営・分析 / 社内自動化（GAS/Slack/API） / 生成AIワークショップ
 
-https://github.com/namanbarkiya/minimal-next-portfolio/assets/82203888/f93bf5ca-c2bd-4fe5-a413-1050ebf6cf78
+詳細はサイト上のスキル一覧をご覧ください。
 
-## 🛠️ Tech Stack
+## 職務経歴・プロジェクト
+- 主要な経験を年表形式で掲載しています。
+- 各プロジェクトは技術要素・役割・成果・リンク（公開可能な場合）を記載しています。
 
-- **Framework**: [Next.js 14](https://nextjs.org/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Form Handling**: Server actions with validation
-- **Analytics**: Google Analytics + Vercel Analytics
-- **Deployment**: [Vercel](https://vercel.com)
+サイト上の掲載内容は次の設定から更新できます。
+- `portfolio/portfolio.json`: プロフィール・自己紹介・プロジェクト・スキル・連絡先の中核データ
+- `config/site.ts`: 基本プロフィールやサイト情報
+- `config/skills.ts`: スキル一覧
+- `config/projects.ts`: プロジェクト一覧
+- `config/experience.ts`: 職務経歴（タイムライン）
 
-## 🔧 Getting Started
+## 連絡先
+- X: https://x.com/Null256x
+- LinkedIn: https://www.linkedin.com/in/%E8%B2%B4%E6%96%87-%E5%B0%8F%E6%A3%AE-53b079376/
+- note: https://note.com/null256
+- GitHub: https://github.com/null256-2025/portfolio
 
-To get started with your own portfolio website:
+必要に応じて `.env.local` を設定し、問い合わせフォームなどの機能を有効化できます（導入している場合）。
 
-1. Clone this repository:
+## ローカル開発
+```bash
+npm install
+npm run dev
+# http://localhost:3000 を開く
+```
 
-   ```bash
-   git clone https://github.com/namanbarkiya/minimal-next-portfolio.git my-portfolio
-   cd my-portfolio
-   ```
+## デプロイ
+Vercel 等のホスティングに対応しています。環境変数の設定後、リポジトリ連携でデプロイできます。
 
-2. Copy the contents of `.env.copy` to a new `.env` file and fill in the required information.
+## このリポジトリで非掲載にしたもの
+- テンプレート由来のデモ動画・スクリーンショット・Star History などの宣伝要素
+- テンプレートの README コンテンツ
 
-3. Install dependencies:
-
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your web browser to see the website.
-
-## 🎨 Customization
-
-The portfolio is designed to be easily customizable:
-
-1. **Personal Information**: Update your personal info in `config/site.ts`
-2. **Skills**: Add your skills in `config/skills.ts`
-3. **Projects**: Add your technical projects in `config/projects.ts`
-4. **Experience**: Customize your professional experience in `config/experience.ts`
-5. **Contributions**: Showcase your contributions in `config/contributions.ts`
-6. **Colors & Theme**: Modify the theme in `tailwind.config.js`
-
-## 🌟 Features In Detail
-
-### Professional Experience Timeline
-
-An interactive, animated timeline that showcases your career journey with expandable sections for details about each position and company.
-
-### Project Showcase
-
-Display your technical projects with detailed information, technologies used, live demo links, and comprehensive project descriptions.
-
-### Skills Showcase
-
-Visually represent your technical and soft skills with customizable ratings and categories.
-
-### Contact Form Integration
-
-A ready-to-use contact form that can connect to various backend services.
-
-### SEO Optimization
-
-Built-in SEO features with proper meta tags, structured data, and semantic HTML.
-
-## 📱 Performance and Responsiveness
-
-![best-portfolio-website-score](https://github.com/namanbarkiya/minimal-next-portfolio/assets/82203888/3fb9c94d-9d99-4e98-92ea-14aadc91b568)
-![100-score-vercel](https://github.com/namanbarkiya/minimal-next-portfolio/assets/82203888/7cfe28cc-b619-4199-9dab-1cf16723b86d)
-
-This template is optimized for:
-
-- 100% Lighthouse score
-- Excellent Core Web Vitals metrics
-- Responsive design across all device sizes
-- Fast loading times with proper image optimization
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgements
-
-- Design inspired by modern portfolio best practices
-- Built by [Naman Barkiya](https://github.com/namanbarkiya)
-- Icons from [Lucide](https://lucide.dev/)
-
-## 💻 Deploy on Vercel
-
-The easiest way to deploy your portfolio is using [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme), the platform from the creators of Next.js.
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=namanbarkiya/minimal-next-portfolio&type=Date)](https://star-history.com/#namanbarkiya/minimal-next-portfolio&Date)
-
----
-
-**Built with ❤️ by [Naman Barkiya](https://github.com/namanbarkiya)**
+## 謝辞
+このサイトはテンプレート（minimal-next-portfolio / by Naman Barkiya）をベースにカスタマイズしています。素晴らしいテンプレートの提供に感謝します。
