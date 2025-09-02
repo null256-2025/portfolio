@@ -113,17 +113,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
-          themes={[
-            "light",
-            "dark",
-            "retro",
-            "cyberpunk",
-            "paper",
-            "aurora",
-            "synthwave",
-          ]}
+          forcedTheme="light"
+          defaultTheme="light"
+          enableSystem={false}
+          storageKey="theme-light"
+          themes={["light"]}
         >
           {children}
           <Analytics />
@@ -131,7 +125,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ModalProvider />
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId={GA_ID} />
+      {GA_ID && GA_ID.startsWith("G-") ? (
+        <GoogleAnalytics gaId={GA_ID} />
+      ) : null}
     </html>
   );
 }

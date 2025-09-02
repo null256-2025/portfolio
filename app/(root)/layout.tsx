@@ -1,5 +1,4 @@
 import { MainNav } from "@/components/common/main-nav";
-import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
 import { routesConfig } from "@/config/routes";
 
@@ -27,7 +26,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
                         >
                             <Icons.gitHub className="w-5 h-5" />
                         </Link> */}
-            <ModeToggle />
+            {/** Theme toggle removed: enforce Light theme only */}
           </nav>
         </div>
       </header>

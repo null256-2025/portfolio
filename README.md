@@ -42,21 +42,10 @@
 - note: https://note.com/null256
 - GitHub: https://github.com/null256-2025/portfolio
 
-必要に応じて `.env.local` を設定し、問い合わせフォームなどの機能を有効化できます（導入している場合）。
-
-## ローカル開発
-```bash
-npm install
-npm run dev
-# http://localhost:3000 を開く
-```
-
-## デプロイ
-Vercel 等のホスティングに対応しています。環境変数の設定後、リポジトリ連携でデプロイできます。
 
 ## このリポジトリで非掲載にしたもの
 - テンプレート由来のデモ動画・スクリーンショット・Star History などの宣伝要素
 - テンプレートの README コンテンツ
 
 ## 謝辞
-このサイトはテンプレート（minimal-next-portfolio / by Naman Barkiya）をベースにカスタマイズしています。素晴らしいテンプレートの提供に感謝します。
+このサイトはテンプレート（minimal-next-portfolio / by Komori Takafumi）をベースにカスタマイズしています。素晴らしいテンプレートの提供に感謝します。

@@ -30,7 +30,7 @@ export const pagesConfig: PagesConfig = {
   },
   ai: {
     title: "AI",
-    description: "使用できる、また使用したことのある AI の一覧。",
+    description: "使用できる AI の一覧。",
     metadata: {
       title: "AI",
       description: "小森貴文が扱える・使用経験のある AI ツール一覧",
