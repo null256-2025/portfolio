@@ -126,17 +126,31 @@ export default function Project({ params }: ProjectPageProps) {
             </h3>
             <div>
               <p>{page.description}</p>
-              {page.imgArr.map((img, ind) => (
-                <Image
-                  src={img}
-                  key={ind}
-                  alt={img}
-                  width={720}
-                  height={405}
-                  className="my-4 rounded-md border bg-muted transition-colors"
-                  priority
-                />
-              ))}
+              {page.imgArr.map((mediaSrc, ind) => {
+                const isVideo = /\.(mp4|webm|ogg)$/i.test(mediaSrc);
+                return isVideo ? (
+                  <video
+                    key={ind}
+                    src={mediaSrc}
+                    controls
+                    width={720}
+                    height={405}
+                    className="my-4 rounded-md border bg-muted transition-colors"
+                    preload="metadata"
+                    playsInline
+                  />
+                ) : (
+                  <Image
+                    src={mediaSrc}
+                    key={ind}
+                    alt={mediaSrc}
+                    width={720}
+                    height={405}
+                    className="my-4 rounded-md border bg-muted transition-colors"
+                    priority
+                  />
+                );
+              })}
             </div>
           </div>
         ))}

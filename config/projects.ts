@@ -143,6 +143,38 @@ export const Projects: ProjectInterface[] = [
       },
     ],
   },
+  {
+    id: "symmetrical-drawing-app",
+    type: "Personal",
+    companyName: "対称描画ジェネレーター",
+    category: ["Web Dev", "Creative Coding", "UI/UX"],
+    shortDescription:
+      "p5.jsとTweakpaneで作る対称描画アプリ。分割・ミラー・色・太さを操作して模様生成。",
+    websiteLink: "https://scope-app.vercel.app/",
+    githubLink: undefined,
+    techStack: ["TypeScript", "Vite", "p5.js", "Tweakpane"],
+    startDate: new Date("2025-08-30"),
+    endDate: new Date("2025-08-31"),
+    companyLogoImg: "/images/projects/scorp.png",
+    descriptionDetails: {
+      paragraphs: [
+        "マウス/タッチで中心対称パターンを描けるジェネラティブ・ドローイングアプリ。Tweakpaneで分割数やミラーリング、線色/太さ、背景色、感度をリアルタイム調整可能。",
+      ],
+      bullets: [
+        "分割数・水平/垂直ミラーで対称描画を生成",
+        "線の色/太さ・背景色をリアルタイム調整",
+        "PNG保存・キャンバスクリア機能を搭載",
+        "モバイル最適化のスライドイン設定パネル（ハンバーガー）",
+        "Vite+TypeScript構成、p5.jsベースの描画",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "Symmetrical Drawing App",
+        imgArr: ["/images/projects/scorp.mp4"],
+      },
+    ],
+  }
 ];
 
 export const featuredProjects = Projects.slice(0, 3);

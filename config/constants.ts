@@ -1,6 +1,9 @@
 export type ValidSkills =
   | "React"
   | "TypeScript"
+  | "Vite"
+  | "p5.js"
+  | "Tweakpane"
   | "Next.js"
   | "Vercel"
   | "Tailwind CSS"
@@ -40,6 +43,7 @@ export type ValidCategory =
   | "Backend"
   | "UI/UX"
   | "Web Dev"
+  | "Creative Coding"
   | "Mobile Dev"
   | "3D Modeling";
 
