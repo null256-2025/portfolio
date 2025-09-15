@@ -25,6 +25,8 @@ export interface ProjectInterface {
   companyLogoImg: any;
   descriptionDetails: DescriptionDetailsInterface;
   pagesInfoArr: PagesInfoInterface[];
+  qrImg?: string;
+  qrText?: string;
 }
 
 export const Projects: ProjectInterface[] = [
@@ -32,7 +34,7 @@ export const Projects: ProjectInterface[] = [
     id: "trendtune-youtube-analysis-mvp",
     type: "Personal",
     companyName: "TrendTune（YouTube分析MVP）",
-    category: ["Web Dev", "Frontend"],
+    category: ["Web Dev", "Frontend", "API"],
     shortDescription: "タグ×3で“伸び筋”を3秒で可視化。API最適化とキャッシュで無料枠でも安定運用。",
     websiteLink: "https://youtube-beta-liard.vercel.app/",
     techStack: ["React", "Next.js", "Vercel"],
@@ -60,14 +62,14 @@ export const Projects: ProjectInterface[] = [
     id: "in-house-ai-propulsion-daily-report-summarization-and-notification-automation",
     type: "Personal",
     companyName: "Dify × GAS × LINE｜レシピ応答ボット",
-    category: ["Web Dev", "Backend"],
+    category: ["Web Dev", "Backend", "UI/UX", "Automation", "Generative AI", "Dify", "GAS", "API"],
     shortDescription: "Dify のフローと Google Apps Script を連携し、LINE から食材・条件を投げると最適なレシピを返すボット。BYOK/省コストで即運用できる軽量構成。",
     websiteLink: undefined,
     githubLink: undefined,
     techStack: [],
     startDate: new Date("2024-01-01"),
     endDate: new Date("2025-12-31"),
-    companyLogoImg: "/images/projects/syokuzai.png",
+    companyLogoImg: "/images/projects/cook-bot/syokuzai.png",
     descriptionDetails: {
       paragraphs: [
         "Dify のフローと Google Apps Script を連携し、LINE から食材・条件を投げると最適なレシピを返すボット。BYOK/省コストで即運用できる軽量構成。",
@@ -81,15 +83,17 @@ export const Projects: ProjectInterface[] = [
     pagesInfoArr: [
       {
         title: "Dify × GAS × LINE｜レシピ応答ボット",
-        imgArr: ["/images/projects/syokuzai.png"],
+        imgArr: ["/images/projects/cook-bot/demo-02.mp4"],
       },
     ],
+    qrImg: "/images/projects/cook-bot/LIFF.png",
+    qrText: "以下のQRコードから実際にお試しできます！",
   },
   {
     id: "generative-ai-workshop-for-companies-and-communities",
     type: "Personal",
     companyName: "生成AIワークショップ（企業/コミュニティ向け）",
-    category: ["Web Dev", "UI/UX"],
+    category: ["Web Dev", "UI/UX", "Generative AI", "Automation"],
     shortDescription: "90–120分で“明日から使える”生成AI活用。実務例を交えたハンズオン形式。",
     websiteLink: "https://example.com/workshop-deck",
     githubLink: undefined,
@@ -118,7 +122,7 @@ export const Projects: ProjectInterface[] = [
     id: "hoikuru-ai-chat-support",
     type: "Personal",
     companyName: "保育ルームAIチャットサポート",
-    category: ["Web Dev", "UI/UX"],
+    category: ["Web Dev", "UI/UX", "Generative AI", "Automation", "Dify", "API", "LIFF"],
     shortDescription: "保育士向けのAIチャットサポートシステム。日々の業務を効率化し、保育士の負担を軽減。",
     websiteLink: "https://example.com/hoikuru",
     githubLink: undefined,

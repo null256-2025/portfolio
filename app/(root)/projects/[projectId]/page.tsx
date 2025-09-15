@@ -113,6 +113,21 @@ export default function Project({ params }: ProjectPageProps) {
           paragraphs={project.descriptionDetails.paragraphs}
           bullets={project.descriptionDetails.bullets}
         />
+        {project.qrImg && (
+          <div className="mt-6">
+            <p className="mb-2 text-sm text-muted-foreground">
+              {project.qrText ?? "以下のQRコードから実際にお試しできます！"}
+            </p>
+            <Image
+              src={project.qrImg}
+              alt={`${project.companyName} QR`}
+              width={220}
+              height={220}
+              className="rounded-md border bg-muted"
+              priority
+            />
+          </div>
+        )}
       </div>
 
       <div className="mb-7 ">

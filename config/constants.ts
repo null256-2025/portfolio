@@ -45,6 +45,13 @@ export type ValidCategory =
   | "Web Dev"
   | "Creative Coding"
   | "Mobile Dev"
+  | "Generative AI"
+  | "Automation"
+  | "Game Dev"
+  | "LIFF"
+  | "Dify"
+  | "GAS"
+  | "API"
   | "3D Modeling";
 
 export type ValidExpType = "Personal" | "Professional";
