@@ -26,22 +26,17 @@ export const SocialLinks: SocialInterface[] = [
     icon: Icons.note,
     link: "https://note.com/null256",
   },
-  // {
-  //   name: "YouTube",
-  //   username: "@your_id",
-  //   icon: Icons.youtube,
-  //   link: "https://www.youtube.com/@your_id",
-  // },
-  // {
-  //   name: "Github",
-  //   username: "@your_id",
-  //   icon: Icons.gitHub,
-  //   link: "https://github.com/your_id",
-  // },
+  {
+    name: "YouTube",
+    username: "NULL256",
+    icon: Icons.youtube,
+    link: "https://www.youtube.com/@null256www",
+  },
   {
     name: "facebook",
     username: "小森貴文",
     icon: Icons.facebook,
     link: "https://www.facebook.com/profile.php?id=100011713711762",
-  }
+  },
 ];
+
