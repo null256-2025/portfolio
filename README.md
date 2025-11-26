@@ -49,3 +49,5 @@
 
 ## 謝辞
 このサイトはテンプレート（minimal-next-portfolio / by Komori Takafumi）をベースにカスタマイズしています。素晴らしいテンプレートの提供に感謝します。
+
+
