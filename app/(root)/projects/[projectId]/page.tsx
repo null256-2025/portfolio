@@ -142,6 +142,25 @@ export default function Project({ params }: ProjectPageProps) {
             <div>
               <p>{page.description}</p>
               {page.imgArr.map((mediaSrc, ind) => {
+                if (Array.isArray(mediaSrc)) {
+                  return (
+                    <div key={ind} className="flex gap-4 my-4">
+                      {mediaSrc.map((src, i) => (
+                        <div key={i} className="flex-1 relative">
+                          <Image
+                            src={src}
+                            alt={src}
+                            width={720}
+                            height={405}
+                            className="rounded-md border bg-muted transition-colors w-full h-auto"
+                            priority
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  );
+                }
+
                 const isVideo = /\.(mp4|webm|ogg)$/i.test(mediaSrc);
                 return isVideo ? (
                   <video

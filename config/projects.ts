@@ -2,7 +2,7 @@ import { ValidCategory, ValidExpType, ValidSkills } from "./constants";
 
 interface PagesInfoInterface {
   title: string;
-  imgArr: string[];
+  imgArr: (string | string[])[];
   description?: string;
 }
 
@@ -30,6 +30,71 @@ export interface ProjectInterface {
 }
 
 export const Projects: ProjectInterface[] = [
+  {
+    id: "nanobanana-studio",
+    type: "Personal",
+    companyName: "NanoBanana Studio",
+    category: ["Web Dev", "Frontend", "Generative AI", "API"],
+    shortDescription: "日本語プロンプトからインスタ向けのシーン画像とセルフィー風画像をまとめて生成。",
+    websiteLink: "https://nanobanana-01.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "CSS", "AI"],
+    startDate: new Date("2025-01-01"),
+    endDate: new Date("2025-12-31"),
+    companyLogoImg: "/images/projects/nanobanana-01.png",
+    descriptionDetails: {
+      paragraphs: [
+        "Gemini API を使って、日本語のプロンプトからシーン画像とセルフィー風画像を生成。キャプションとハッシュタグも自動で用意。画像はブラウザ上の Object URL で扱い、サーバーには保存しません。",
+      ],
+      bullets: [
+        "日本語プロンプトのまま、Gemini 2.5 Flash Image でヒーロー画像を生成",
+        "顔写真を添付すると同じシーンのセルフィー風画像も同時生成",
+        "1:1 / 4:5 / 9:16 など複数のアスペクト比をワンタップ切り替え",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "NanoBanana Studio",
+        imgArr: [
+          "/images/projects/nanobanana-01.png",
+          "/images/projects/nanobanana-01-2.png",
+        ],
+      },
+    ],
+  },
+  {
+    id: "hoikuru-ai-poc",
+    type: "Personal",
+    companyName: "保育だより・連絡帳 下書きAI",
+    category: ["Web Dev", "Frontend", "Generative AI", "Automation"],
+    shortDescription: "保育現場向けに「おたより」「連絡帳」の下書きを素早く作れる Next.js 製の PoC。",
+    websiteLink: "https://antigravity-02-hoikuruai.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "AI"],
+    startDate: new Date("2025-01-01"),
+    endDate: new Date("2025-12-31"),
+    companyLogoImg: "/images/projects/hoikuruai-02.png",
+    descriptionDetails: {
+      paragraphs: [
+        "保育現場向けに「おたより」「連絡帳」の下書きを素早く作れる Next.js 製の PoC。医療・災害に関する NG ワードを入力段階と API 側の両方でブロックし、個人情報をサーバーに残さないシンプルな設計になっています。",
+      ],
+      bullets: [
+        "おたより / 連絡帳の下書き生成（トーン・長さ・キーワード・メモを指定）",
+        "文体サンプルをローカル保存し、生成文の口調を調整",
+        "医療・災害キーワードの NG ガード",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "保育だより・連絡帳 下書きAI",
+        imgArr: [
+          "/images/projects/hoikuruai-02.png",
+          [
+            "/images/projects/hoikuruai-02-1.png",
+            "/images/projects/hoikuruai-02-2.png",
+          ],
+        ],
+      },
+    ],
+  },
   {
     id: "trendtune-youtube-analysis-mvp",
     type: "Personal",
