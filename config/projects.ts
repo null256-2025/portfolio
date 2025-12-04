@@ -31,6 +31,41 @@ export interface ProjectInterface {
 
 export const Projects: ProjectInterface[] = [
   {
+    id: "interview-buddy-ai-coach",
+    type: "Personal",
+    companyName: "Interview Buddy - AI",
+    category: ["Web Dev", "Frontend", "Generative AI", "Automation", "API"],
+    shortDescription:
+      "Gemini AI を活用したHR/応募者向けの面接練習・質問作成支援ツール。",
+    websiteLink: "https://interview-buddy-vert.vercel.app/",
+    techStack: ["Next.js", "TypeScript", "React", "CSS", "AI"],
+    startDate: new Date("2025-01-15"),
+    endDate: new Date("2025-03-15"),
+    companyLogoImg: "/images/projects/interview-buddy.png",
+    descriptionDetails: {
+      paragraphs: [
+        "Gemini 2.0 Flash Exp を搭載したHR向けと応募者向けの面接練習プラットフォーム。職種プロファイル管理やモード切り替えで、企業側の質問テンプレ整備から応募者の模擬面接までワンストップで支援します。",
+        "MVP段階ではインメモリストアで高速に動作し、将来的にSupabaseへの移行を見据えたアーキテクチャで開発しました。",
+      ],
+      bullets: [
+        "HRモードで職種プロファイルをCRUDし、テンプレやGemini自動質問生成を通して募集要件に沿った面接票を即作成",
+        "Practiceモードでは応募者とAIがチャット形式で模擬面接、5問回答後に評価軸別スコアと改善フィードバックを提示",
+        "改善回答例や注意事項の提示により学習ループを形成し、AI評価は参考情報として扱うガイドラインを整備",
+        "Next.js 15 + TypeScript + Vanilla CSS Modulesで実装し、Gemini APIキーはBYOKで.env管理",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "Interview Buddy",
+        imgArr: ["/images/projects/interview-buddy-01.png"],
+      },
+            {
+        title: "Interview Buddy",
+        imgArr: ["/images/projects/interview-buddy-02.png"],
+      },
+    ],
+  },
+  {
     id: "nanobanana-studio",
     type: "Personal",
     companyName: "NanoBanana Studio",
