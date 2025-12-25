@@ -13,6 +13,7 @@ export interface ExperienceInterface {
   skills: ValidSkills[];
   companyUrl?: string;
   logo?: string;
+  thumbnailUrl?: string;
   links?: { label: string; url: string }[];
   heroImage?: string;
 }
@@ -51,31 +52,6 @@ export const experiences: ExperienceInterface[] = [
     heroImage: "/experience/i-enter-2023-hero.png"
   },
 
-  // --- 既存: 生成AI活用 講師（社内・社外） ---
-  {
-    id: "ai-lectures-2024",
-    position: "生成AI活用 講師（社内・社外）",
-    company: "株式会社アイエンター",
-    location: "Japan",
-    startDate: new Date("2024-04-01"),
-    endDate: new Date("2024-11-30"),
-    companyUrl: "https://www.i-enter.co.jp",
-    description: [
-      "従業員および社外向けに、生成AIのリテラシー/活用事例/ハンズオンを実施。資料作成〜登壇まで一貫対応。"
-    ],
-    achievements: [
-      "社内向け生成AIリテラシー講座の企画・講師",
-      "社外向け活用講座・ハンズオン登壇（会社イベント/セミナー）",
-      "年次研修で生成AI講義を担当"
-    ],
-    skills: ["ChatGPT","Dify","Python","Presentation","Education","Communication"] as ValidSkills[],
-    links: [
-      { label: "登壇：2025/02/26（AIエージェント元年）", url: "https://www.i-enter.co.jp/news/detail/250131_01/" },
-      { label: "登壇：2024/07/11（ハンズオン）", url: "https://www.i-enter.co.jp/news/detail/240605_01/" },
-      { label: "登壇：2024/04/04（ビジネス活用術）", url: "https://www.i-enter.co.jp/news/detail/240315_01/" }
-    ],
-    heroImage: "/experience/ai-lectures-2024-hero.png"
-  },
 
   // --- 既存: 阪神ロジテック（社内SE） ---
   {

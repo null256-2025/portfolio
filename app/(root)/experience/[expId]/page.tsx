@@ -9,7 +9,6 @@ import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import ChipContainer from "@/components/ui/chip-container";
-import { ResponsiveTabs } from "@/components/ui/responsive-tabs";
 import { experiences, ExperienceInterface } from "@/config/experience";
 import { siteConfig } from "@/config/site";
 
@@ -63,112 +62,6 @@ export default function ExperienceDetailPage({
   if (!experience) {
     redirect("/experience");
   }
-
-  const tabItems = [
-    {
-      value: "summary",
-      label: "Summary",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Role Summary
-            </h3>
-
-            {/* ▼ Hero Image：Role Summary直下 */}
-            {experience.heroImage && (
-              <div className="mb-6 overflow-hidden rounded-lg border border-border">
-                <Image
-                  src={experience.heroImage}
-                  alt={`${experience.position} hero`}
-                  width={1200}
-                  height={630}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-              </div>
-            )}
-
-            <ul className="space-y-3">
-              {experience.description.map((desc, idx) => (
-                <li key={idx} className="text-base leading-relaxed flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  {desc}
-                </li>
-              ))}
-            </ul>
-
-            {/* ▼ Related Links */}
-            {experience.links?.length ? (
-              <div className="mt-6">
-                <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
-                  Related Links
-                </h4>
-                <ul className="space-y-2">
-                  {experience.links.map((l, i) => (
-                    <li key={i} className="text-base leading-relaxed">
-                      <a
-                        href={l.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-primary hover:underline"
-                      >
-                        <Icons.link className="w-4 h-4" />
-                        <span>{l.label}</span>
-                        <Icons.externalLink className="w-3.5 h-3.5 opacity-70" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </AnimatedSection>
-      ),
-    },
-    {
-      value: "achievements",
-      label: "Achievements",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Key Achievements
-            </h3>
-            <ul className="space-y-3">
-              {experience.achievements.map((achievement, idx) => (
-                <li
-                  key={idx}
-                  className="text-base leading-relaxed flex items-start gap-3"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  {achievement}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </AnimatedSection>
-      ),
-    },
-    {
-      value: "skills",
-      label: "Skills",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Technologies & Skills
-            </h3>
-            <ChipContainer textArr={experience.skills} />
-            <p className="mt-4 text-sm text-muted-foreground">
-              These are the primary technologies and skills utilized during my
-              time at {experience.company}.
-            </p>
-          </div>
-        </AnimatedSection>
-      ),
-    },
-  ];
 
   return (
     <ClientPageWrapper>
@@ -236,7 +129,93 @@ export default function ExperienceDetailPage({
             </CardHeader>
 
             <CardContent>
-              <ResponsiveTabs items={tabItems} defaultValue="summary" />
+              <AnimatedSection delay={0.3}>
+                <div className="space-y-8">
+                  <div>
+                    <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
+                      Role Summary
+                    </h3>
+
+                    {/* ??? Hero Image?E?Role Summary??????E*/}
+                    {experience.heroImage && (
+                      <div className="mb-6 overflow-hidden rounded-lg border border-border">
+                        <Image
+                          src={experience.heroImage}
+                          alt={`${experience.position} hero`}
+                          width={1200}
+                          height={630}
+                          className="w-full h-auto object-cover"
+                          priority
+                        />
+                      </div>
+                    )}
+
+                    <ul className="space-y-3">
+                      {experience.description.map((desc, idx) => (
+                        <li
+                          key={idx}
+                          className="text-base leading-relaxed flex items-start gap-3"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          {desc}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
+                      Key Achievements
+                    </h3>
+                    <ul className="space-y-3">
+                      {experience.achievements.map((achievement, idx) => (
+                        <li
+                          key={idx}
+                          className="text-base leading-relaxed flex items-start gap-3"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
+                      Technologies & Skills
+                    </h3>
+                    <ChipContainer textArr={experience.skills} />
+                    <p className="mt-4 text-sm text-muted-foreground">
+                      These are the primary technologies and skills utilized
+                      during my time at {experience.company}.
+                    </p>
+                  </div>
+
+                  {experience.links?.length ? (
+                    <div>
+                      <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">
+                        Related Links
+                      </h4>
+                      <ul className="space-y-2">
+                        {experience.links.map((l, i) => (
+                          <li key={i} className="text-base leading-relaxed">
+                            <a
+                              href={l.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 text-primary hover:underline"
+                            >
+                              <Icons.link className="w-4 h-4" />
+                              <span>{l.label}</span>
+                              <Icons.externalLink className="w-3.5 h-3.5 opacity-70" />
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
+              </AnimatedSection>
             </CardContent>
           </Card>
         </AnimatedSection>
