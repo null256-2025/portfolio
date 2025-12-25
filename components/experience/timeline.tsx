@@ -68,7 +68,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
             >
               <div className="flex items-start gap-3 sm:gap-4">
                 {thumbnailSrc && (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
+                  <div className="relative aspect-video w-28 sm:w-32 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
                     {isRemoteThumbnail ? (
                       <img
                         src={thumbnailSrc}
@@ -79,9 +79,9 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                       <Image
                         src={thumbnailSrc}
                         alt={experience.company}
-                        width={56}
-                        height={56}
-                        className="h-full w-full object-cover"
+                        fill
+                        sizes="(max-width: 640px) 112px, 128px"
+                        className="object-cover"
                       />
                     )}
                   </div>

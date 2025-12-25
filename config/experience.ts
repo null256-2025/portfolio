@@ -162,5 +162,31 @@ export const experiences: ExperienceInterface[] = [
     skills: ["Writing","AI","Research","TechnicalDocumentation"] as ValidSkills[],
     links: [{ label: "書籍詳細（技術情報協会）", url: "https://www.gijutu.co.jp/doc/b_2285.htm" }],
     heroImage: "/experience/publication-20250331-hero.jpg"
+  },
+
+  // 004: 2025/12/05 クリエイティブAI トライ＆ディスカッション
+  {
+    id: "teqs-creative-ai-20251205",
+    position: "トライ＆ディスカッション登壇：クリエイティブAIでビジネスを加速",
+    company: "ソフト産業プラザ TEQS",
+    location: "大阪（ATC ITM棟6階 TEQS講義室）",
+    startDate: new Date("2025-12-05"),
+    endDate: new Date("2025-12-05"),
+    companyUrl: "https://teqs.jp",
+    thumbnailUrl: "/images/projects/teqs.png",
+    heroImage: "https://teqs.jp/wp-content/uploads/2025/11/3d92d372d672c18f418fe35b2f9acc41.jpg",
+    description: [
+      "クリエイティブAI（画像・音楽・動画）を実際に手を動かして学ぶトライアル形式のセミナー。サービス企画や事業開発に必要な素材をその場で制作しながら習得。"
+    ],
+    achievements: [
+      "画像/音楽/動画の生成AIをハンズオンで実習（アカウント作成〜素材生成）",
+      "サービス説明動画やUI/UXモック、プレゼン用BGMなどのビジネス素材を制作",
+      "参加者ディスカッションと質疑応答で活用アイデアを共有"
+    ],
+    skills: ["AI","Presentation","Education","Workshop","Communication"] as ValidSkills[],
+    links: [
+      { label: "イベント詳細", url: "https://www.sansokan.jp/events/eve_detail.san?H_A_NO=46860" }
+    ]
   }
+
 ];
