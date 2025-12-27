@@ -66,7 +66,7 @@ export const experiences: ExperienceInterface[] = [
     ],
     achievements: [
       "IT資産/契約の洗い出しと費用把握",
-      "さくらインターネットからのサーバ移行とHP移転を主導",
+      "既存のサーバ移行とHP移転を主導",
       "社内LAN配線整理・保守性改善、Microsoft 365導入",
       "老朽PC更新・サブモニター整備、HPフルリニューアル公開"
     ],
