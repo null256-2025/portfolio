@@ -73,7 +73,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                       <img
                         src={thumbnailSrc}
                         alt={experience.company}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-contain"
                       />
                     ) : (
                       <Image
@@ -81,7 +81,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
                         alt={experience.company}
                         fill
                         sizes="(max-width: 640px) 112px, 128px"
-                        className="object-cover"
+                        className="object-contain"
                       />
                     )}
                   </div>
