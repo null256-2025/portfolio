@@ -95,11 +95,11 @@ export default function IndexPage() {
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            {"AI × 自動化 × フロントエンド"}
+            {"AI×フロントエンド×AI講師"}
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              {"手作業30分を3分に。生成AIとウェブ技術で“すぐに使える”仕組みを作ります。"}
+              {"AIの使い方～MVP開発、運用までを伴走。"}
             </p>
           </div>
 

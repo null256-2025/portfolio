@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "KOMORI TAKAFUMI | ポートフォリオ",
   authorName: "KOMORI TAKAFUMI",
   username: "your_id",
-  description: "AI×自動化×フロントエンドで、個人と中小企業の成長を加速します。3日で動くPoC、30日で現場運用へ。",
+  description: "AI×フロントエンド×AI講師で、個人と中小企業の成長を加速します。AIの使い方～MVP開発、運用までを伴走。",
   url: "https://your-domain.com",
   links: {
     twitter: "https://x.com/Null256x",
@@ -17,7 +17,7 @@ export const siteConfig = {
   keywords: [
     "KOMORI TAKAFUMI",
     "AI",
-    "自動化",
+    "生成AIセミナー",
     "フロントエンド",
     "Next.js",
     "React",

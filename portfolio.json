@@ -2,13 +2,13 @@
   "siteMeta": {
     "lang": "ja",
     "title": "KOMORI TAKAFUMI | ポートフォリオ",
-    "description": "AI×自動化×フロントエンドで、個人と中小企業の成長を加速します。3日で動くPoC、30日で現場運用へ。",
+    "description": "AI×フロントエンド×AI講師で、個人と中小企業の成長を加速します。",
     "ogImage": "/images/ogp.jpg"
   },
   "hero": {
     "name": "KOMORI TAKAFUMI",
-    "headline": "AI × 自動化 × フロントエンド",
-    "sub": "手作業30分を3分に。生成AIとウェブ技術で“すぐに使える”仕組みを作ります。",
+    "headline": "AI×フロントエンド×AI講師で、個人と中小企業の成長を加速します。",
+    "sub": "AIの使い方～MVP開発、運用までを伴走。",
     "ctaPrimary": {
       "label": "プロジェクトを見る",
       "href": "#projects"
