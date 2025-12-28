@@ -131,6 +131,65 @@ export const Projects: ProjectInterface[] = [
     ],
   },
   {
+    id: "yofuke-no-toudai",
+    type: "Personal",
+    companyName: "夜更けの灯台",
+    category: ["Web Dev", "Frontend", "UI/UX", "Midjourney", "Suno"],
+    shortDescription:
+      "Web小説とARG要素を組み合わせ、読者参加型で物語を拡張する体験サイト。",
+    websiteLink: "https://yofukenotoudai.xyz/",
+    techStack: ["Next.js", "TypeScript", "React", "CSS", "Writing"],
+    startDate: new Date("2024-01-01"),
+    endDate: new Date("2025-12-31"),
+    companyLogoImg: "/images/projects/yofuke-no-toudai-01.png",
+    descriptionDetails: {
+      paragraphs: [
+        "Web小説を読み進めるとサイト内に散りばめられた手がかりが開き、読者自身が調査・考察を行うARG風の構成で没入体験を設計しました。",
+        "物語の進行に合わせてUIや演出が変化し、読む行為そのものが探索体験になるように情報設計と導線設計を行っています。",
+      ],
+      bullets: [
+        "章ごとに解放される謎解きページと可変UIで物語体験を拡張",
+        "読者の発見と考察を促す導線設計とインタラクション設計",
+        "小説の世界観を崩さないタイポグラフィと視覚演出",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "夜更けの灯台",
+        imgArr: ["/images/projects/yofuke-no-toudai-02.png" ],
+      },
+    ],
+  },
+  {
+    id: "seiran",
+    type: "Personal",
+    companyName: "青藍大学ホームページ",
+    category: ["Web Dev", "Frontend", "UI/UX", "Creative Coding"],
+    shortDescription:
+      "Web小説×ARG。読者が作品世界の「調査員」になる設計で、新しい読書体験を提供。",
+    websiteLink: "https://seiran.xyz/",
+    techStack: ["Next.js", "TypeScript", "React", "CSS", "Writing"],
+    startDate: new Date("2025-12-05"),
+    endDate: new Date("2025-12-27"),
+    companyLogoImg: "/images/projects/seiran-01.png",
+    descriptionDetails: {
+      paragraphs: [
+        "青藍大学の特色・教育研究の方針・キャンパスの基本情報をまとめた大学概要ページ。感性とテクノロジーの融合、地域・産業との共創、学部横断の学びを軸に、学長メッセージやKPI、関連リンクまでを一ページで把握できます。",
+      ],
+      bullets: [
+        "大学の理念と教育研究の方向性を簡潔に整理",
+        "キャンパス情報と主要導線（アクセス・学部/研究）を明示",
+        "学長メッセージ、基本KPI、関連リンクを一括掲載",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "青藍大学ホームページ",
+        imgArr: ["/images/projects/seiran-01.png"],
+      },
+    ],
+  },
+  {
     id: "trendtune-youtube-analysis-mvp",
     type: "Personal",
     companyName: "TrendTune（YouTube分析MVP）",
