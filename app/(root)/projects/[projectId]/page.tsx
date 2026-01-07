@@ -139,8 +139,33 @@ export default function Project({ params }: ProjectPageProps) {
             <h3 className="flex items-center font-heading text-xl leading-tight lg:text-xl mt-3">
               <Icons.star className="h-5 w-5 mr-2" /> {page.title}
             </h3>
+            {page.links && page.links.length > 0 && (
+              <div className="flex flex-wrap gap-3 mt-2">
+                {page.links.map((link) => (
+                  <Link
+                    key={`${page.title}-${link.label}`}
+                    href={link.url}
+                    target="_blank"
+                    className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
+                  >
+                    <Icons.externalLink className="mr-1 h-4 w-4" />
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
             <div>
               <p>{page.description}</p>
+              {page.heroImage && (
+                <Image
+                  src={page.heroImage}
+                  alt={`${page.title} hero`}
+                  width={720}
+                  height={405}
+                  className="my-4 rounded-md border bg-muted transition-colors"
+                  priority
+                />
+              )}
               {page.imgArr.map((mediaSrc, ind) => {
                 if (Array.isArray(mediaSrc)) {
                   return (

@@ -4,6 +4,8 @@ interface PagesInfoInterface {
   title: string;
   imgArr: (string | string[])[];
   description?: string;
+  heroImage?: string;
+  links?: { label: string; url: string }[];
 }
 
 interface DescriptionDetailsInterface {
@@ -30,6 +32,42 @@ export interface ProjectInterface {
 }
 
 export const Projects: ProjectInterface[] = [
+  {
+    id: "generative-ai-workshop-for-companies-and-communities",
+    type: "Personal",
+    companyName: "生成AIワークショップ（企業・フリーランス向け）",
+    category: ["Web Dev", "UI/UX", "Generative AI", "Automation"],
+    shortDescription:
+      "120分~180分で自社・事業内で使える生成AI活用ハンズオン。",
+    websiteLink: "https://example.com/workshop-deck",
+    githubLink: undefined,
+    techStack: ["Workshop", "AI", "Presentation"],
+    startDate: new Date("2025-12-05"),
+    endDate: new Date("2025-12-05"),
+    companyLogoImg: "/images/projects/teqs.png",
+    descriptionDetails: {
+      paragraphs: [
+        "120分~180分で自社・事業内で使える生成AI活用ハンズオン。",
+      ],
+      bullets: [
+          "Suno AI / NanoBanana Pro を交えたクリエイティブAI活用",
+          "Gemini / ChatGPT / Claude を業務に組み込む実例紹介",
+          "Antigravity / Cursor / Claude Code / Manus などのAIエージェント・AIコーディング支援",
+      ],
+    },
+    pagesInfoArr: [
+      {
+        title: "生成AIワークショップ",
+        links: [
+          {
+            label: "イベント詳細",
+            url: "https://www.sansokan.jp/events/eve_detail.san?H_A_NO=46860",
+          },
+        ],
+        imgArr: ["/images/projects/teqs-02.png"],
+      },
+    ],
+  },
   {
     id: "interview-buddy-ai-coach",
     type: "Personal",
@@ -247,35 +285,6 @@ export const Projects: ProjectInterface[] = [
     ],
     qrImg: "/images/projects/cook-bot/LIFF.png",
     qrText: "以下のQRコードから実際にお試しできます！",
-  },
-  {
-    id: "generative-ai-workshop-for-companies-and-communities",
-    type: "Personal",
-    companyName: "生成AIワークショップ（企業/コミュニティ向け）",
-    category: ["Web Dev", "UI/UX", "Generative AI", "Automation"],
-    shortDescription: "90–120分で“明日から使える”生成AI活用。実務例を交えたハンズオン形式。",
-    websiteLink: "https://example.com/workshop-deck",
-    githubLink: undefined,
-    techStack: ["Next.js"],
-    startDate: new Date("2024-01-01"),
-    endDate: new Date("2025-12-31"),
-    companyLogoImg: "/images/projects/seminar.png",
-    descriptionDetails: {
-      paragraphs: [
-        "90–120分で“明日から使える”生成AI活用。実務例を交えたハンズオン形式。",
-      ],
-      bullets: [
-        "プロンプト設計の基礎〜業務テンプレ化までを実演",
-        "ノーコード×APIで小さな自動化を体験",
-        "参加者満足度の高い“実務直結”コンテンツ",
-      ],
-    },
-    pagesInfoArr: [
-      {
-        title: "生成AIワークショップ",
-        imgArr: ["/images/projects/seminar.png"],
-      },
-    ],
   },
   {
     id: "hoikuru-ai-chat-support",
