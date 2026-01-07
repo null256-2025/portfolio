@@ -46,8 +46,6 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
       {sortedExperiences.map((experience, index) => {
         const thumbnailSrc =
           experience.thumbnailUrl || experience.heroImage || experience.logo;
-        const isRemoteThumbnail =
-          typeof thumbnailSrc === "string" && thumbnailSrc.startsWith("http");
 
         return (
           <AnimatedSection
@@ -69,21 +67,13 @@ const Timeline: React.FC<TimelineProps> = ({ experiences }) => {
               <div className="flex items-start gap-3 sm:gap-4">
                 {thumbnailSrc && (
                   <div className="relative aspect-video w-28 sm:w-32 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
-                    {isRemoteThumbnail ? (
-                      <img
-                        src={thumbnailSrc}
-                        alt={experience.company}
-                        className="h-full w-full object-contain"
-                      />
-                    ) : (
-                      <Image
-                        src={thumbnailSrc}
-                        alt={experience.company}
-                        fill
-                        sizes="(max-width: 640px) 112px, 128px"
-                        className="object-contain"
-                      />
-                    )}
+                    <Image
+                      src={thumbnailSrc}
+                      alt={experience.company}
+                      fill
+                      sizes="(max-width: 640px) 112px, 128px"
+                      className="object-contain"
+                    />
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
