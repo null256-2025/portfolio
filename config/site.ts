@@ -3,7 +3,7 @@ export const siteConfig = {
   authorName: "KOMORI TAKAFUMI",
   username: "your_id",
   description: "AI×フロントエンド×AI講師で、個人と中小企業の成長を加速します。AIの使い方～MVP開発、運用までを伴走。",
-  url: "https://your-domain.com",
+  url: "https://null256.com",
   links: {
     twitter: "https://x.com/Null256x",
     github: "https://github.com/your_id",
