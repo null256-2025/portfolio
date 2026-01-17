@@ -4,10 +4,14 @@ import PageContainer from "@/components/common/page-container";
 import ProjectCard from "@/components/projects/project-card";
 import { pagesConfig } from "@/config/pages";
 import { Projects } from "@/config/projects";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
   title: pagesConfig.projects.metadata.title,
   description: pagesConfig.projects.metadata.description,
+  alternates: {
+    canonical: `${siteConfig.url}/projects`,
+  },
 };
 
 export default function ProjectsPage() {

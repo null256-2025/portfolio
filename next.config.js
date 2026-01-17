@@ -8,6 +8,16 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.null256.com" }],
+        destination: "https://null256.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

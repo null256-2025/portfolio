@@ -77,9 +77,6 @@ export const metadata = {
     apple: siteConfig.logoIcon,
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
-  alternates: {
-    canonical: siteConfig.url,
-  },
   robots: {
     index: true,
     follow: true,
