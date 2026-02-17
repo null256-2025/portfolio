@@ -3,9 +3,9 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Komori Takafumi Portfolio",
-    short_name: "Naman's Portfolio",
+    short_name: "KOMORI　PORTFOLIO",
     description:
-      "Komori Takafumi's modern developer portfolio built with Next.js - available as an open-source template",
+      "Komori Takafumi's portfolio for AI utilization, frontend development, and practical workshops.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
@@ -25,13 +25,13 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     categories: [
       "portfolio",
-      "template",
       "development",
       "nextjs",
       "react",
       "developer",
       "web development",
-      "open source",
+      "ai",
+      "workshop",
     ],
     lang: "en",
     dir: "ltr",

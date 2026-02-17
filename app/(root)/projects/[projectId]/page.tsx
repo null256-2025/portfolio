@@ -18,8 +18,6 @@ interface ProjectPageProps {
   };
 }
 
-const githubUsername = "namanbarkiya";
-
 export default function Project({ params }: ProjectPageProps) {
   let project = Projects.find((val) => val.id === params.projectId);
   if (!project) {
@@ -72,7 +70,7 @@ export default function Project({ params }: ProjectPageProps) {
           >
             <Image
               src={profileImg}
-              alt={"naman"}
+              alt={"KOMORI TAKAFUMI"}
               width={42}
               height={42}
               className="rounded-full bg-background"

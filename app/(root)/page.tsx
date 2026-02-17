@@ -18,11 +18,10 @@ import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
 import { aiTools } from "@/config/ai";
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
 
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
-  description: `${pagesConfig.home.metadata.description} This open-source Next.js portfolio template is customizable to showcase your skills and projects.`,
+  description: pagesConfig.home.metadata.description,
   alternates: {
     canonical: siteConfig.url,
   },
@@ -40,36 +39,12 @@ export default function IndexPage() {
     sameAs: [siteConfig.links.github, siteConfig.links.twitter],
   };
 
-  // Structured data for website as a software application (template)
-  const softwareSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Next.js Portfolio Template",
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    author: {
-      "@type": "Person",
-      name: siteConfig.authorName,
-      url: siteConfig.url,
-    },
-  };
-
   return (
     <ClientPageWrapper>
       <Script
         id="schema-person"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-      <Script
-        id="schema-software"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
 
       <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
@@ -95,7 +70,7 @@ export default function IndexPage() {
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            {"AI×フロントエンド×AI講師"}
+            {"フロントエンド×AI講師"}
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
@@ -127,6 +102,21 @@ export default function IndexPage() {
                 aria-label={"お問い合わせ"}
               >
                 {"お問い合わせ"}
+              </Link>
+            </AnimatedText>
+            <AnimatedText delay={1}>
+              <Link
+                href={"/kansai-career"}
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({
+                    variant: "secondary",
+                    size: "lg",
+                  })
+                )}
+                aria-label={"登壇後の30分相談"}
+              >
+                {"登壇後の30分相談"}
               </Link>
             </AnimatedText>
           </div>

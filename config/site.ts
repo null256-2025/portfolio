@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: "KOMORI TAKAFUMI | ポートフォリオ",
   authorName: "KOMORI TAKAFUMI",
-  username: "your_id",
-  description: "AI×フロントエンド×AI講師で、個人と中小企業の成長を加速します。AIの使い方～MVP開発、運用までを伴走。",
+  username: "KOMORI_TAKAFUMI",
+  description: "フロントエンド×AI講師で、個人と中小企業の成長を加速します。AIの使い方～MVP開発、運用までを伴走。",
   url: "https://null256.com",
   links: {
     twitter: "https://x.com/Null256x",
-    github: "https://github.com/your_id",
+    github: "https://github.com/KOMORI-TAKAFUMI",
     note: "https://note.com/null256",
-    youtube: "https://www.youtube.com/@your_id",
+    youtube: "https://www.youtube.com/@null256www",
     linkedin: "https://www.linkedin.com/in/%E8%B2%B4%E6%96%87-%E5%B0%8F%E6%A3%AE-53b079376/",
   },
   ogImage: "/images/ogp.jpg",
