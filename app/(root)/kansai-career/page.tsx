@@ -48,33 +48,29 @@ const proofExperiences = proofExperienceIds
   .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
 export const metadata: Metadata = {
-  title: "勉強会参加者限定30分相談",
+  title: "AI導入相談（90分）",
   description:
-    "登壇内容を踏まえ、1業務に絞って次の一手を決める30分相談。参加者限定で無料対応します。",
+    "登壇後・名刺交換後の共通窓口。90分でAI導入の対象業務、運用ルール、2週間パイロット計画を整理します。",
   alternates: {
     canonical: `${siteConfig.url}/kansai-career`,
   },
 };
 
 export default function KansaiCareerPage() {
-  const ctaLabel = "30分相談を予約する";
+  const ctaLabel = "90分 AI導入相談を申し込む";
 
   return (
     <PageContainer
-      title="登壇後の30分相談"
-      description="勉強会参加者限定。1業務に絞って次の一手を決めます。"
+      title="AI導入相談（90分）"
+      description="登壇後・名刺交換後の共通窓口。1業務に絞って、次の2週間で試す計画まで決めます。"
     >
       <div className="mx-auto max-w-3xl space-y-10">
         <section className="rounded-lg border p-6 bg-background">
-          <p className="text-sm text-muted-foreground mb-2">
-            参加者限定・無料（先着順）
-          </p>
-          <h2 className="text-2xl font-heading mb-3">
-            登壇後の30分相談で、次の一手を切る
-          </h2>
+          <p className="text-sm text-muted-foreground mb-2">初回メニュー（有料）</p>
+          <h2 className="text-2xl font-heading mb-3">90分で、導入の詰まりを解消する</h2>
           <p className="text-muted-foreground leading-relaxed">
-            課題の棚卸しではなく、業務1つに絞って「何を試すか」を決める時間です。
-            30分で優先順位と実行ステップを整理します。
+            AIの使い方が曖昧な状態から、対象業務・運用ルール・実行ステップを整理します。
+            相談で終わらず、翌週から試せる設計に落とします。
           </p>
           <div className="mt-5">
             <Button asChild size="lg">
@@ -84,10 +80,11 @@ export default function KansaiCareerPage() {
         </section>
 
         <section className="rounded-lg border p-6 bg-background">
-          <h2 className="text-2xl font-heading mb-3">30分で持ち帰る成果物</h2>
+          <h2 className="text-2xl font-heading mb-3">90分で持ち帰る成果物</h2>
           <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
             <li>対象業務（1つ）と成功指標（時間短縮/品質改善）</li>
-            <li>進め方の選択肢（2週間パイロット or 90分診断）</li>
+            <li>運用ルール（禁止事項・レビュー手順・プロンプト管理）</li>
+            <li>2週間パイロット計画（誰が何をいつやるか）</li>
             <li>見積レンジと最低限必要な社内体制</li>
           </ul>
         </section>
@@ -176,8 +173,9 @@ export default function KansaiCareerPage() {
         <section className="rounded-lg border p-6 bg-background">
           <h2 className="text-2xl font-heading mb-3">相談後の進め方（有料）</h2>
           <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+            <li>90分 AI導入相談: 3〜5万円（導入計画と運用設計）</li>
             <li>2週間パイロット: 5〜15万円（1業務に限定して検証）</li>
-            <li>90分診断: 3〜5万円（運用設計と優先順位を確定）</li>
+            <li>半日ハンズオン: 要相談（部署単位の定着支援）</li>
           </ul>
         </section>
 
@@ -191,9 +189,9 @@ export default function KansaiCareerPage() {
         </section>
 
         <section className="rounded-lg border p-6 bg-background text-center space-y-3">
-          <h2 className="text-2xl font-heading">30分相談を予約する</h2>
+          <h2 className="text-2xl font-heading">90分 AI導入相談を申し込む</h2>
           <p className="text-muted-foreground">
-            フォームから「勉強会参加者経由」と記載してください。
+            フォームの「流入元」に、名刺交換したイベント名をご記載ください。
           </p>
           <Button asChild size="lg">
             <Link href="/contact">{ctaLabel}</Link>

@@ -6,6 +6,11 @@ import { z } from "zod";
 const contactFormSchema = z.object({
   name: z.string().min(3, "お名前は3文字以上で入力してください。"),
   email: z.string().email("有効なメールアドレスを入力してください。"),
+  company: z.string().max(100).optional().or(z.literal("")),
+  role: z.string().max(50).optional().or(z.literal("")),
+  theme: z.string().max(100).optional().or(z.literal("")),
+  timing: z.string().max(50).optional().or(z.literal("")),
+  referralSource: z.string().max(100).optional().or(z.literal("")),
   message: z.string().min(10, "もう少し具体的にご記入ください。（10文字以上）"),
   social: z.string().url().optional().or(z.literal("")),
 });
@@ -39,7 +44,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const { name, email, message, social } = validationResult.data;
+    const { name, email, company, role, theme, timing, referralSource, message, social } = validationResult.data;
 
     // メール送信（null256.2025@gmail.comに送信）
     const { data, error } = await resend.emails.send({
@@ -56,6 +61,11 @@ export async function POST(req: Request) {
             <h3 style="color: #4F46E5; margin-top: 0;">送信者情報</h3>
             <p><strong>お名前:</strong> ${name}</p>
             <p><strong>メールアドレス:</strong> ${email}</p>
+            ${company ? `<p><strong>会社名:</strong> ${company}</p>` : ''}
+            ${role ? `<p><strong>ご担当:</strong> ${role}</p>` : ''}
+            ${theme ? `<p><strong>相談テーマ:</strong> ${theme}</p>` : ''}
+            ${timing ? `<p><strong>希望時期:</strong> ${timing}</p>` : ''}
+            ${referralSource ? `<p><strong>流入元:</strong> ${referralSource}</p>` : ''}
             ${social ? `<p><strong>SNSリンク:</strong> <a href="${social}" target="_blank">${social}</a></p>` : ''}
           </div>
           
@@ -79,6 +89,11 @@ export async function POST(req: Request) {
 【送信者情報】
 お名前: ${name}
 メールアドレス: ${email}
+${company ? `会社名: ${company}` : ''}
+${role ? `ご担当: ${role}` : ''}
+${theme ? `相談テーマ: ${theme}` : ''}
+${timing ? `希望時期: ${timing}` : ''}
+${referralSource ? `流入元: ${referralSource}` : ''}
 ${social ? `SNSリンク: ${social}` : ''}
 
 【メッセージ内容】

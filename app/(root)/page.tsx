@@ -27,6 +27,54 @@ export const metadata: Metadata = {
   },
 };
 
+const serviceMenus = [
+  {
+    title: "90分 AI導入相談",
+    price: "3〜5万円",
+    duration: "90分",
+    points: [
+      "対象業務を1つに絞る",
+      "成功指標（時間/品質）を設定",
+      "2週間で試す実行計画を作成",
+    ],
+  },
+  {
+    title: "2週間パイロット",
+    price: "5〜15万円",
+    duration: "2週間",
+    points: [
+      "運用ルールとプロンプト整備",
+      "最小実装またはテンプレ納品",
+      "効果測定と次フェーズ提案",
+    ],
+  },
+  {
+    title: "半日ハンズオン",
+    price: "要相談",
+    duration: "半日",
+    points: [
+      "部署別の活用テーマ設計",
+      "現場で使う演習中心",
+      "導入後の運用ガイドを共有",
+    ],
+  },
+];
+
+const trustLinks = [
+  {
+    label: "TEQS 登壇実績",
+    url: "https://www.sansokan.jp/events/eve_detail.san?H_A_NO=46860",
+  },
+  {
+    label: "書籍執筆（技術情報協会）",
+    url: "https://www.gijutu.co.jp/doc/b_2285.htm",
+  },
+  {
+    label: "生成AIセミナー登壇",
+    url: "https://www.i-enter.co.jp/news/detail/250131_01/",
+  },
+];
+
 export default function IndexPage() {
   // Structured data for personal portfolio
   const personSchema = {
@@ -70,23 +118,23 @@ export default function IndexPage() {
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            {"フロントエンド×AI講師"}
+            {"AI導入を現場で回る形にする"}
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              {"AIの使い方～MVP開発、運用までを伴走。"}
+              {"営業・企画・人事向けに、運用設計から最小実装まで伴走。導入しただけで終わらせません。"}
             </p>
           </div>
 
           <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
             <AnimatedText delay={0.6}>
               <Link
-                href={"#projects"}
+                href={"/kansai-career"}
                 target="_self"
                 className={cn(buttonVariants({ size: "lg" }))}
-                aria-label={"プロジェクトを見る"}
+                aria-label={"90分 AI導入相談を見る"}
               >
-                {"プロジェクトを見る"}
+                {"90分 AI導入相談を見る"}
               </Link>
             </AnimatedText>
             <AnimatedText delay={0.8}>
@@ -99,14 +147,14 @@ export default function IndexPage() {
                     size: "lg",
                   })
                 )}
-                aria-label={"お問い合わせ"}
+                aria-label={"お問い合わせする"}
               >
-                {"お問い合わせ"}
+                {"お問い合わせする"}
               </Link>
             </AnimatedText>
             <AnimatedText delay={1}>
               <Link
-                href={"/kansai-career"}
+                href={"#offerings"}
                 rel="noreferrer"
                 className={cn(
                   buttonVariants({
@@ -114,9 +162,9 @@ export default function IndexPage() {
                     size: "lg",
                   })
                 )}
-                aria-label={"登壇後の30分相談"}
+                aria-label={"提供メニューを見る"}
               >
-                {"登壇後の30分相談"}
+                {"提供メニューを見る"}
               </Link>
             </AnimatedText>
           </div>
@@ -127,6 +175,68 @@ export default function IndexPage() {
       </section>
       <AnimatedSection
         className="container space-y-6 bg-muted py-10"
+        id="offerings"
+      >
+        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+          <AnimatedText
+            as="h2"
+            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
+          >
+            {"提供メニュー"}
+          </AnimatedText>
+          <AnimatedText
+            as="p"
+            delay={0.2}
+            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
+          >
+            {"AIの使い方が分からない状態から、業務に定着させるところまで段階的に支援します。"}
+          </AnimatedText>
+        </div>
+        <div className="mx-auto grid gap-4 md:w-full lg:grid-cols-3">
+          {serviceMenus.map((menu, index) => (
+            <AnimatedSection
+              key={menu.title}
+              delay={0.1 * (index + 1)}
+              direction="up"
+            >
+              <article className="h-full rounded-lg border bg-background p-6">
+                <p className="text-sm text-muted-foreground">
+                  {menu.duration} / {menu.price}
+                </p>
+                <h3 className="mt-2 text-xl font-semibold">{menu.title}</h3>
+                <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                  {menu.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <Link
+                  href="/kansai-career"
+                  className="inline-block mt-5 text-sm underline underline-offset-4"
+                >
+                  詳細を見る
+                </Link>
+              </article>
+            </AnimatedSection>
+          ))}
+        </div>
+        <div className="mx-auto flex max-w-[58rem] flex-wrap items-center justify-center gap-3">
+          {trustLinks.map((item) => (
+            <Link
+              key={item.label}
+              href={item.url}
+              target="_blank"
+              className="rounded-full border bg-background px-4 py-2 text-sm hover:bg-accent"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </AnimatedSection>
+      <div className="container py-8">
+        <div className="mx-auto h-px max-w-[58rem] bg-border/70" />
+      </div>
+      <AnimatedSection
+        className="container space-y-6 py-10 my-14"
         id="skills"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
@@ -251,3 +361,4 @@ export default function IndexPage() {
     </ClientPageWrapper>
   );
 }
+

@@ -46,7 +46,7 @@ export const pagesConfig: PagesConfig = {
   },
   contact: {
     title: "Contact",
-    description: "まずは30分相談（参加者限定・無料）から。夜・土日もご相談いただけます。",
+    description: "90分 AI導入相談（3〜5万円）と2週間パイロット（5〜15万円）に対応しています。",
     metadata: {
       title: "Contact",
       description: "お問い合わせフォーム",
