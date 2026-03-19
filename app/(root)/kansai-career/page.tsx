@@ -173,9 +173,9 @@ export default function KansaiCareerPage() {
         <section className="rounded-lg border p-6 bg-background">
           <h2 className="text-2xl font-heading mb-3">相談後の進め方（有料）</h2>
           <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-            <li>90分 AI導入相談: 3〜5万円（導入計画と運用設計）</li>
-            <li>2週間パイロット: 5〜15万円（1業務に限定して検証）</li>
-            <li>半日ハンズオン: 要相談（部署単位の定着支援）</li>
+            <li>90分 AI導入相談: 3万円〜（導入計画と運用設計）</li>
+            <li>社内向けミニ研修: 8万円〜（部門単位の活用整理）</li>
+            <li>小規模PoC / 2週間パイロット: 15万円〜（1業務に限定して検証）</li>
           </ul>
         </section>
 

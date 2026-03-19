@@ -14,10 +14,11 @@ type PagesConfig = {
 export const pagesConfig: PagesConfig = {
   home: {
     title: "Home",
-    description: "ポートフォリオサイトへようこそ。",
+    description: "中小企業向けのAI導入・研修・業務改善支援の相談入口です。",
     metadata: {
-      title: "Home",
-      description: "小森貴文のポートフォリオサイト",
+      title: "中小企業向けAI導入・研修・業務改善支援",
+      description:
+        "営業・企画・人事・バックオフィス向けに、生成AIの導入整理、研修、小規模PoCを支援します。",
     },
   },
   skills: {
@@ -37,19 +38,22 @@ export const pagesConfig: PagesConfig = {
     },
   },
   projects: {
-    title: "Projects",
-    description: "これまでに手がけた主要なプロジェクトや成果を紹介します。",
+    title: "事例",
+    description:
+      "企業向け支援・業務改善に近い事例を中心に、相談につながる実績をまとめています。",
     metadata: {
-      title: "Projects",
-      description: "小森貴文のプロジェクトと実績",
+      title: "事例",
+      description: "相談に近い実績と、企業向け支援に転用しやすい事例一覧",
     },
   },
   contact: {
-    title: "Contact",
-    description: "90分 AI導入相談（3〜5万円）と2週間パイロット（5〜15万円）に対応しています。",
+    title: "相談・お問い合わせ",
+    description:
+      "90分 AI導入相談は3万円〜。通常2営業日以内に返信し、オンラインでの初回相談にも対応しています。",
     metadata: {
-      title: "Contact",
-      description: "お問い合わせフォーム",
+      title: "相談・お問い合わせ",
+      description:
+        "AI導入相談、社内向けミニ研修、小規模PoCの相談受付ページです。",
     },
   },
   resume: {
@@ -61,11 +65,12 @@ export const pagesConfig: PagesConfig = {
     },
   },
   experience: {
-    title: "Experience",
-    description: "これまでのキャリアの流れや経験をまとめています。",
+    title: "実績",
+    description:
+      "登壇・研修・開発・導入支援の実績を、発注判断の材料として確認できるページです。",
     metadata: {
-      title: "Experience",
-      description: "小森貴文のキャリアと職務経験の詳細",
+      title: "実績",
+      description: "講師・開発・導入支援の実績とキャリアの詳細",
     },
   },
 };

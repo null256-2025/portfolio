@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Norican } from "next/font/google";
 import Link from "next/link";
-import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { usePathname } from "next/navigation";
 import * as React from "react";
 
 import { Icons } from "@/components/common/icons";
@@ -38,7 +38,6 @@ const navItemVariants = {
 };
 
 export function MainNav({ items, children }: MainNavProps) {
-  const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
 
@@ -60,7 +59,7 @@ export function MainNav({ items, children }: MainNavProps) {
         </Link>
       </motion.div>
       {items?.length ? (
-        <nav className="hidden gap-6 md:flex items-center">
+        <nav className="hidden items-center gap-4 lg:gap-6 md:flex">
           {items?.map((item, index) => (
             <motion.div
               key={index}
@@ -74,8 +73,10 @@ export function MainNav({ items, children }: MainNavProps) {
               <Link
                 href={item.disabled ? "#" : item.href}
                 className={cn(
-                  "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                  item.href.startsWith(`/${segment}`)
+                  "flex items-center text-sm font-medium transition-colors hover:text-foreground/80",
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname === item.href || pathname.startsWith(`${item.href}/`)
                     ? "text-foreground"
                     : "text-foreground/60",
                   item.disabled && "cursor-not-allowed opacity-80"

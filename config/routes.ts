@@ -1,19 +1,31 @@
 export const routesConfig: any = {
   mainNav: [
     {
-      title: "Skills",
-      href: "/skills",
+      title: "Home",
+      href: "/",
     },
     {
-      title: "AI",
-      href: "/ai",
+      title: "人事・採用向け",
+      href: "/hr-recruiting",
     },
     {
-      title: "Projects",
+      title: "研修・教育向け",
+      href: "/training-education",
+    },
+    {
+      title: "営業企画向け",
+      href: "/sales-planning",
+    },
+    {
+      title: "バックオフィス向け",
+      href: "/back-office",
+    },
+    {
+      title: "事例",
       href: "/projects",
     },
     {
-      title: "Experience",
+      title: "実績",
       href: "/experience",
     },
     {

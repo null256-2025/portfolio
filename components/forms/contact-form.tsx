@@ -146,7 +146,10 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>ご担当（任意）</FormLabel>
               <FormControl>
-                <Input placeholder="例: 営業 / 企画 / 人事 / 情シス" {...field} />
+                <Input
+                  placeholder="例: 営業企画 / 人事・採用 / 研修・教育 / バックオフィス"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -160,7 +163,7 @@ export function ContactForm() {
               <FormLabel>相談テーマ（任意）</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="例: AI導入、運用ルール設計、業務改善"
+                  placeholder="例: AI導入相談 / 社内向けミニ研修 / 小規模PoC"
                   {...field}
                 />
               </FormControl>
@@ -189,7 +192,7 @@ export function ContactForm() {
               <FormLabel>流入元（任意）</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="例: TEQS、関西キャリアデザイン研究会、紹介"
+                  placeholder="例: TEQS / 名刺交換 / 紹介 / Web検索"
                   {...field}
                 />
               </FormControl>
@@ -204,7 +207,10 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>ご相談内容</FormLabel>
               <FormControl>
-                <Textarea placeholder="ご相談やご質問をご自由にご記入ください。" {...field} />
+                <Textarea
+                  placeholder="現在の課題、相談したい業務、導入したい範囲などをご記入ください。"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -233,7 +239,7 @@ export function ContactForm() {
               送信中...
             </>
           ) : (
-            "送信する"
+            "相談内容を送信する"
           )}
         </Button>
       </form>
