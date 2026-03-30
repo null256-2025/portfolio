@@ -1,5 +1,14 @@
 import Link from "next/link";
 
+import {
+  audienceCapabilityVisuals,
+  audienceChallengeVisuals,
+  audienceVisualMap,
+  BusinessFlowStrip,
+  BusinessIconBadge,
+  serviceOfferVisuals,
+  supportStepVisuals,
+} from "@/components/business/business-visuals";
 import PageContainer from "@/components/common/page-container";
 import ProjectCard from "@/components/projects/project-card";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -35,6 +44,10 @@ export function AudiencePage({ audience }: AudiencePageProps) {
     >
       <div className="mx-auto max-w-6xl space-y-10">
         <section className="rounded-2xl border bg-muted/30 p-6 md:p-8">
+          <BusinessIconBadge
+            name={audienceVisualMap[audience.slug]}
+            className="h-14 w-14 rounded-2xl"
+          />
           <p className="text-sm font-medium text-primary">職種別の相談入口</p>
           <h2 className="mt-2 text-3xl font-heading">{audience.heroTitle}</h2>
           <p className="mt-4 max-w-3xl text-muted-foreground">
@@ -54,15 +67,25 @@ export function AudiencePage({ audience }: AudiencePageProps) {
               問い合わせる
             </Link>
           </div>
+          <BusinessFlowStrip className="mt-6" />
         </section>
 
         <section className="grid gap-6 lg:grid-cols-2">
           <article className="rounded-2xl border bg-background p-6">
             <h2 className="text-2xl font-heading">よくある課題</h2>
             <ul className="mt-4 space-y-3 text-muted-foreground">
-              {audience.challenges.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+              {audience.challenges.map((item, index) => (
+                <li
+                  key={item}
+                  className="flex gap-4 rounded-2xl border bg-muted/20 p-4"
+                >
+                  <BusinessIconBadge
+                    name={
+                      audienceChallengeVisuals[index % audienceChallengeVisuals.length]
+                    }
+                    className="h-10 w-10 rounded-xl"
+                    iconClassName="h-4 w-4"
+                  />
                   <span>{item}</span>
                 </li>
               ))}
@@ -71,9 +94,20 @@ export function AudiencePage({ audience }: AudiencePageProps) {
           <article className="rounded-2xl border bg-background p-6">
             <h2 className="text-2xl font-heading">提供できること</h2>
             <ul className="mt-4 space-y-3 text-muted-foreground">
-              {audience.capabilities.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
+              {audience.capabilities.map((item, index) => (
+                <li
+                  key={item}
+                  className="flex gap-4 rounded-2xl border bg-muted/20 p-4"
+                >
+                  <BusinessIconBadge
+                    name={
+                      audienceCapabilityVisuals[
+                        index % audienceCapabilityVisuals.length
+                      ]
+                    }
+                    className="h-10 w-10 rounded-xl"
+                    iconClassName="h-4 w-4"
+                  />
                   <span>{item}</span>
                 </li>
               ))}
@@ -89,11 +123,15 @@ export function AudiencePage({ audience }: AudiencePageProps) {
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
-            {audience.offers.map((offer) => (
+            {audience.offers.map((offer, index) => (
               <article
                 key={offer.title}
                 className="rounded-2xl border bg-background p-6"
               >
+                <BusinessIconBadge
+                  name={serviceOfferVisuals[index] ?? serviceOfferVisuals[0]}
+                  className="h-12 w-12 rounded-xl"
+                />
                 <h3 className="text-xl font-semibold">{offer.title}</h3>
                 <p className="mt-3 text-sm text-muted-foreground">
                   {offer.description}
@@ -149,7 +187,16 @@ export function AudiencePage({ audience }: AudiencePageProps) {
           <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {supportSteps.map((step, index) => (
               <article key={step.title} className="rounded-xl border p-4">
-                <p className="text-sm font-medium text-primary">STEP {index + 1}</p>
+                <div className="flex items-center gap-3">
+                  <BusinessIconBadge
+                    name={supportStepVisuals[index] ?? supportStepVisuals[0]}
+                    className="h-10 w-10 rounded-xl"
+                    iconClassName="h-4 w-4"
+                  />
+                  <p className="text-sm font-medium text-primary">
+                    STEP {index + 1}
+                  </p>
+                </div>
                 <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
                   {step.description}

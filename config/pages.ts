@@ -14,11 +14,11 @@ type PagesConfig = {
 export const pagesConfig: PagesConfig = {
   home: {
     title: "Home",
-    description: "中小企業向けのAI導入・研修・業務改善支援の相談入口です。",
+    description: "中小企業向けのAI導入相談の入口です。",
     metadata: {
-      title: "中小企業向けAI導入・研修・業務改善支援",
+      title: "中小企業向けAI導入相談",
       description:
-        "営業・企画・人事・バックオフィス向けに、生成AIの導入整理、研修、小規模PoCを支援します。",
+        "中小企業向けに、生成AI導入の最初の整理、社内向け研修、小規模PoCを支援します。",
     },
   },
   skills: {
@@ -47,13 +47,13 @@ export const pagesConfig: PagesConfig = {
     },
   },
   contact: {
-    title: "相談・お問い合わせ",
+    title: "お申し込み",
     description:
-      "90分 AI導入相談は3万円〜。通常2営業日以内に返信し、オンラインでの初回相談にも対応しています。",
+      "90分 AI導入相談の最終申込みページです。通常2営業日以内に返信します。",
     metadata: {
-      title: "相談・お問い合わせ",
+      title: "AI導入相談のお申し込み",
       description:
-        "AI導入相談、社内向けミニ研修、小規模PoCの相談受付ページです。",
+        "90分 AI導入相談の最終申込みページです。",
     },
   },
   resume: {

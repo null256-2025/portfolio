@@ -144,6 +144,7 @@ export default function ExperienceDetailPage({
                           alt={`${experience.position} hero`}
                           width={1200}
                           height={630}
+                          sizes="(max-width: 1024px) 100vw, 896px"
                           className="w-full h-auto object-cover"
                           priority
                         />

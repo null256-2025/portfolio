@@ -6,23 +6,16 @@ import Script from "next/script";
 import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
-import ProjectCard from "@/components/projects/project-card";
-import { Button, buttonVariants } from "@/components/ui/button";
 import {
-  audiencePages,
-  businessCaseStudyIds,
-  commonFaqs,
-  homeChallenges,
-  proofLinks,
-  projectContextNotes,
-  serviceOffers,
-  supportSteps,
-  trustPillars,
-} from "@/config/business";
+  BusinessIconBadge,
+  trustVisuals,
+  type BusinessVisualName,
+} from "@/components/business/business-visuals";
+import { Button } from "@/components/ui/button";
+import { commonFaqs, proofLinks, trustPillars } from "@/config/business";
+import { experiences } from "@/config/experience";
 import { pagesConfig } from "@/config/pages";
-import { Projects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: pagesConfig.home.metadata.title,
@@ -32,10 +25,93 @@ export const metadata: Metadata = {
   },
 };
 
-const featuredBusinessProjects = businessCaseStudyIds
-  .slice(0, 3)
-  .map((id) => Projects.find((project) => project.id === id))
-  .filter((project): project is NonNullable<typeof project> => Boolean(project));
+const proofExperienceIds = [
+  "generative-ai-workshop-for-companies-and-communities",
+  "interview-buddy-ai-coach",
+  "publication-20250331",
+] as const;
+
+const proofExperiences = proofExperienceIds
+  .map((id) => experiences.find((experience) => experience.id === id))
+  .filter((experience): experience is NonNullable<typeof experience> =>
+    Boolean(experience)
+  );
+
+const decisionCards: Array<{
+  icon: BusinessVisualName;
+  title: string;
+  description: string;
+}> = [
+  {
+    icon: "clarify",
+    title: "試す業務を決める",
+    description: "提案書、議事録、FAQ、研修資料などの中から、最初に着手する業務を絞ります。",
+  },
+  {
+    icon: "decision",
+    title: "使う範囲を決める",
+    description: "AIに任せる部分と、人が確認する部分を切り分けます。社内で迷いやすい線引きを先に整理します。",
+  },
+  {
+    icon: "support",
+    title: "次の2週間を決める",
+    description: "相談後に何を試すか、誰が何をするかを、現実的な粒度で揃えます。",
+  },
+];
+
+const fitCards: Array<{
+  icon: BusinessVisualName;
+  title: string;
+  description: string;
+}> = [
+  {
+    icon: "challenge",
+    title: "AIを試したいが、何から始めればよいかわからない",
+    description: "対象業務を絞るところから整理します。",
+  },
+  {
+    icon: "clarify",
+    title: "提案書、議事録、FAQ、研修資料の負荷が大きい",
+    description: "文書業務の時短から入れます。",
+  },
+  {
+    icon: "automation",
+    title: "社内で使い始めているが、ルールが曖昧",
+    description: "使う範囲とレビュー方法を先に決めます。",
+  },
+  {
+    icon: "decision",
+    title: "いきなり開発ではなく、まず小さく試したい",
+    description: "相談、研修、PoCの順で段階的に進めます。",
+  },
+  {
+    icon: "support",
+    title: "開発会社に頼む前に、現場目線で整理したい",
+    description: "導入前の論点を短くまとめます。",
+  },
+];
+
+const nextStepCards: Array<{
+  icon: BusinessVisualName;
+  title: string;
+  description: string;
+}> = [
+  {
+    icon: "training",
+    title: "社内向けミニ研修",
+    description: "部門単位で使い方と注意点を揃えます。",
+  },
+  {
+    icon: "poc",
+    title: "小規模PoC",
+    description: "1業務に絞って、使える形になるかを検証します。",
+  },
+  {
+    icon: "support",
+    title: "継続支援",
+    description: "運用整理や追加実装まで必要な範囲だけ進めます。",
+  },
+];
 
 export default function IndexPage() {
   const personSchema = {
@@ -57,96 +133,110 @@ export default function IndexPage() {
       />
 
       <section className="py-10 md:py-16 lg:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
-          <div className="flex justify-center lg:justify-start">
-            <Image
-              src="/images/profile.png"
-              height={280}
-              width={280}
-              sizes="(max-width: 1024px) 240px, 280px"
-              className="h-auto w-full max-w-[17rem] rounded-full border-8 border-primary bg-primary object-cover"
-              alt="KOMORI TAKAFUMI | ポートフォリオ"
-              priority
-            />
-          </div>
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div className="space-y-6">
-            <AnimatedText
-              as="p"
-              className="text-sm font-semibold uppercase tracking-[0.25em] text-primary"
-            >
-              SME AI Enablement
-            </AnimatedText>
-            <AnimatedText
-              as="h1"
-              delay={0.1}
-              className="font-heading text-4xl leading-tight sm:text-5xl lg:text-6xl"
-            >
-              中小企業向けに、
-              <br />
-              生成AIの研修・業務改善・小規模PoCを支援します
-            </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.2}
-              className="max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg"
-            >
-              営業・企画・人事・バックオフィスの現場で、
-              「何から始めればよいかわからない」状態から小さく試せる形に整理し、
-              実務で回るところまで伴走します。
-            </AnimatedText>
-            <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-              <span className="rounded-full border px-4 py-2">90分 AI導入相談 3万円〜</span>
-              <span className="rounded-full border px-4 py-2">社内向けミニ研修 8万円〜</span>
-              <span className="rounded-full border px-4 py-2">小規模PoC 15万円〜</span>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/kansai-career"
-                className={cn(buttonVariants({ size: "lg" }))}
+            <p className="inline-flex rounded-full border border-primary/15 bg-background px-4 py-1 text-xs font-semibold tracking-[0.18em] text-primary">
+              中小企業向け 生成AI導入相談
+            </p>
+            <div className="space-y-4">
+              <AnimatedText
+                as="h1"
+                delay={0.1}
+                className="max-w-3xl font-heading text-4xl leading-tight sm:text-5xl lg:text-6xl"
               >
-                90分 AI導入相談を見る
-              </Link>
-              <Link
-                href="#audiences"
-                className={cn(buttonVariants({ variant: "secondary", size: "lg" }))}
-              >
-                職種別ページを見る
-              </Link>
-              <Link
-                href="/contact"
-                className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
-              >
-                問い合わせる
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <AnimatedSection className="py-6" id="challenges">
-        <section className="rounded-[2rem] border bg-muted/30 p-6 md:p-8">
-          <div className="mx-auto max-w-5xl space-y-6">
-            <div className="space-y-3 text-center">
-              <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-                こんな悩みがある企業向けです
+                生成AI導入の最初の一歩を、90分で整理します
               </AnimatedText>
               <AnimatedText
                 as="p"
-                delay={0.1}
-                className="text-muted-foreground"
+                delay={0.2}
+                className="max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg"
               >
-                まずは対象業務を絞って、小さく試せるところから始めます。
+                何から試すか。どこまで使うか。次に何をやるか。導入前に決めるべきことを絞って整理します。
               </AnimatedText>
             </div>
-            <div className="grid gap-4 md:grid-cols-2">
-              {homeChallenges.map((item, index) => (
+            <div className="flex flex-wrap gap-3">
+              <Button asChild size="lg">
+                <Link href="/kansai-career">90分 AI導入相談を見る</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="#proofs">実績を見る</Link>
+              </Button>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-muted-foreground">
+              研修の前に。開発の前に。最初の判断を先に揃えます。
+            </p>
+          </div>
+
+          <AnimatedSection delay={0.1} direction="up">
+            <div className="rounded-[1.75rem] border bg-background p-6 shadow-[0_22px_60px_-38px_rgba(15,23,42,0.45)]">
+              <div className="overflow-hidden rounded-[1.5rem] border bg-muted/20">
+                <Image
+                  src="/images/profile.png"
+                  alt="小森貴文のプロフィール写真"
+                  width={720}
+                  height={520}
+                  className="h-auto w-full object-cover"
+                  priority
+                />
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border bg-background p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    所要時間
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">90分</p>
+                </div>
+                <div className="rounded-2xl border bg-background p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    価格
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">3万円〜</p>
+                </div>
+                <div className="rounded-2xl border bg-background p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    申込み先
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">/contact</p>
+                </div>
+                <div className="rounded-2xl border bg-background p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                    持ち帰り
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">業務・範囲・次の一歩</p>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <AnimatedSection className="py-6" id="decision">
+        <section className="rounded-[2rem] border bg-muted/30 p-6 md:p-8 lg:p-10">
+          <div className="mx-auto max-w-6xl space-y-6">
+            <div className="space-y-2">
+              <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
+                この相談で決まること
+              </AnimatedText>
+              <p className="text-muted-foreground">
+                相談の中で決めるのは、広い構想ではなく、最初に動かすための3点です。
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {decisionCards.map((card, index) => (
                 <AnimatedSection
-                  key={item}
-                  delay={0.1 * (index + 1)}
+                  key={card.title}
+                  delay={0.08 * (index + 1)}
                   direction="up"
                 >
-                  <article className="rounded-2xl border bg-background p-5">
-                    <p className="text-muted-foreground">{item}</p>
+                  <article className="h-full rounded-2xl border bg-background p-5">
+                    <BusinessIconBadge
+                      name={card.icon}
+                      className="h-11 w-11 rounded-xl"
+                    />
+                    <h3 className="mt-4 text-lg font-semibold">{card.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                      {card.description}
+                    </p>
                   </article>
                 </AnimatedSection>
               ))}
@@ -155,92 +245,34 @@ export default function IndexPage() {
         </section>
       </AnimatedSection>
 
-      <AnimatedSection className="py-12" id="audiences">
+      <AnimatedSection className="py-12">
         <div className="mx-auto max-w-6xl space-y-6">
           <div className="space-y-3 text-center">
             <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-              職種ごとに、よくある課題から見られます
+              こういう会社向けです
             </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.1}
-              className="text-muted-foreground"
-            >
-              営業時はトップではなく、相手に合う職種ページを直接送れる構成にしています。
+            <AnimatedText as="p" delay={0.1} className="text-muted-foreground">
+              生成AIに興味はあるが、まだ社内で進め方が定まっていない企業向けです。
             </AnimatedText>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {audiencePages.map((audience, index) => (
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {fitCards.map((card, index) => (
               <AnimatedSection
-                key={audience.slug}
-                delay={0.1 * (index + 1)}
+                key={card.title}
+                delay={0.06 * (index + 1)}
                 direction="up"
               >
-                <article className="flex h-full flex-col rounded-2xl border bg-background p-6">
-                  <h3 className="text-xl font-semibold">{audience.navTitle}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground">
-                    {audience.cardDescription}
+                <article className="flex h-full flex-col rounded-2xl border bg-background p-5">
+                  <BusinessIconBadge
+                    name={card.icon}
+                    className="h-11 w-11 rounded-xl"
+                  />
+                  <h3 className="mt-4 text-lg font-semibold leading-7">
+                    {card.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    {card.description}
                   </p>
-                  <div className="mt-6">
-                    <Link
-                      href={audience.href}
-                      className={cn(buttonVariants({ variant: "outline" }))}
-                    >
-                      {audience.navTitle}を見る
-                    </Link>
-                  </div>
-                </article>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection className="py-12" id="offers">
-        <div className="mx-auto max-w-6xl space-y-6">
-          <div className="space-y-3 text-center">
-            <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-              まずは小さく始められるメニューを用意しています
-            </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.1}
-              className="text-muted-foreground"
-            >
-              いきなり大規模導入ではなく、まずは1テーマを整理し、小さく試す形を基本にしています。
-            </AnimatedText>
-          </div>
-          <div className="grid gap-4 lg:grid-cols-3">
-            {serviceOffers.map((offer, index) => (
-              <AnimatedSection
-                key={offer.title}
-                delay={0.1 * (index + 1)}
-                direction="up"
-              >
-                <article className="flex h-full flex-col rounded-2xl border bg-background p-6">
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-xl font-semibold">{offer.title}</h3>
-                    <p className="text-sm font-medium text-primary">{offer.price}</p>
-                  </div>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    {offer.summary}
-                  </p>
-                  <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                    {offer.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6">
-                    <Link
-                      href={offer.href}
-                      className={cn(buttonVariants({ variant: "outline" }))}
-                    >
-                      詳細を見る
-                    </Link>
-                  </div>
                 </article>
               </AnimatedSection>
             ))}
@@ -252,13 +284,9 @@ export default function IndexPage() {
         <div className="mx-auto max-w-6xl space-y-6">
           <div className="space-y-3 text-center">
             <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-              講師・開発・導入支援をまたいで対応できます
+              私ができること
             </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.1}
-              className="text-muted-foreground"
-            >
+            <AnimatedText as="p" delay={0.1} className="text-muted-foreground">
               相談だけ、実装だけに偏らず、現場で回るところまで含めて支援します。
             </AnimatedText>
           </div>
@@ -266,17 +294,85 @@ export default function IndexPage() {
             {trustPillars.map((pillar, index) => (
               <AnimatedSection
                 key={pillar.title}
-                delay={0.1 * (index + 1)}
+                delay={0.08 * (index + 1)}
                 direction="up"
               >
                 <article className="h-full rounded-2xl border bg-background p-6">
-                  <h3 className="text-xl font-semibold">{pillar.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  <BusinessIconBadge
+                    name={trustVisuals[index] ?? trustVisuals[0]}
+                    className="h-11 w-11 rounded-xl"
+                  />
+                  <h3 className="mt-4 text-lg font-semibold">{pillar.title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
                     {pillar.description}
                   </p>
                 </article>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection className="py-12" id="proofs">
+        <div className="mx-auto max-w-6xl space-y-6">
+          <div className="space-y-3 text-center">
+            <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
+              相談の背景になる実績
+            </AnimatedText>
+            <AnimatedText as="p" delay={0.1} className="text-muted-foreground">
+              作品一覧ではなく、企業向け相談に近い実績を優先して掲載しています。
+            </AnimatedText>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {proofExperiences.map((experience, index) => {
+              const thumbnailSrc =
+                experience.thumbnailUrl ??
+                (experience.heroImage?.startsWith("/")
+                  ? experience.heroImage
+                  : undefined);
+
+              return (
+                <AnimatedSection
+                  key={experience.id}
+                  delay={0.08 * (index + 1)}
+                  direction="up"
+                >
+                  <article className="overflow-hidden rounded-2xl border bg-background">
+                    {thumbnailSrc ? (
+                      <div className="relative aspect-[16/10] border-b">
+                        <Image
+                          src={thumbnailSrc}
+                          alt={`${experience.position} サムネイル`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 33vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : null}
+                    <div className="space-y-3 p-5">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                        {experience.company}
+                      </p>
+                      <h3 className="text-lg font-semibold leading-7">
+                        {experience.position}
+                      </h3>
+                      <p className="text-sm leading-6 text-muted-foreground">
+                        {experience.description[0]}
+                      </p>
+                      {experience.links?.[0] ? (
+                        <Link
+                          href={experience.links[0].url}
+                          target="_blank"
+                          className="inline-flex text-sm font-medium text-primary underline underline-offset-4"
+                        >
+                          詳細を見る
+                        </Link>
+                      ) : null}
+                    </div>
+                  </article>
+                </AnimatedSection>
+              );
+            })}
           </div>
           <div className="flex flex-wrap justify-center gap-3">
             {proofLinks.map((item) => (
@@ -297,69 +393,27 @@ export default function IndexPage() {
         <div className="mx-auto max-w-6xl space-y-6">
           <div className="space-y-3 text-center">
             <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-              相談に近い事例
+              相談後の選択肢
             </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.1}
-              className="text-muted-foreground"
-            >
-              作品一覧ではなく、企業向け相談に近い実績を優先して掲載しています。
+            <AnimatedText as="p" delay={0.1} className="text-muted-foreground">
+              相談で終わらせず、必要なところだけ次に進めます。
             </AnimatedText>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {featuredBusinessProjects.map((project, index) => (
+          <div className="grid gap-4 md:grid-cols-3">
+            {nextStepCards.map((card, index) => (
               <AnimatedSection
-                key={project.id}
-                delay={0.1 * (index + 1)}
+                key={card.title}
+                delay={0.08 * (index + 1)}
                 direction="up"
               >
-                <div className="space-y-3">
-                  <ProjectCard project={project} />
-                  <p className="text-sm text-muted-foreground">
-                    {projectContextNotes[project.id]}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <div className="flex justify-center">
-            <Link
-              href="/projects"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
-            >
-              事例一覧を見る
-            </Link>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection className="py-12">
-        <div className="mx-auto max-w-6xl space-y-6">
-          <div className="space-y-3 text-center">
-            <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-              支援の流れ
-            </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.1}
-              className="text-muted-foreground"
-            >
-              相談、研修、PoCのいずれでも、同じ順序で理解コストを下げながら進めます。
-            </AnimatedText>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {supportSteps.map((step, index) => (
-              <AnimatedSection
-                key={step.title}
-                delay={0.1 * (index + 1)}
-                direction="up"
-              >
-                <article className="h-full rounded-2xl border bg-background p-6">
-                  <p className="text-sm font-semibold text-primary">STEP {index + 1}</p>
-                  <h3 className="mt-2 text-xl font-semibold">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                    {step.description}
+                <article className="h-full rounded-2xl border bg-background p-5">
+                  <BusinessIconBadge
+                    name={card.icon}
+                    className="h-11 w-11 rounded-xl"
+                  />
+                  <h3 className="mt-4 text-lg font-semibold">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    {card.description}
                   </p>
                 </article>
               </AnimatedSection>
@@ -379,7 +433,7 @@ export default function IndexPage() {
             {commonFaqs.map((faq, index) => (
               <AnimatedSection
                 key={faq.question}
-                delay={0.1 * (index + 1)}
+                delay={0.08 * (index + 1)}
                 direction="up"
               >
                 <article className="rounded-2xl border bg-background p-6">
@@ -398,21 +452,17 @@ export default function IndexPage() {
         <section className="rounded-[2rem] border bg-muted/30 p-8 text-center">
           <div className="mx-auto max-w-3xl space-y-4">
             <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
-              まずは30分〜90分の相談から始められます
+              まずは、何から始めるかの整理から。
             </AnimatedText>
-            <AnimatedText
-              as="p"
-              delay={0.1}
-              className="text-muted-foreground"
-            >
-              いきなり導入や開発を決める必要はありません。現状整理と、小さく始めるための進め方の確認から対応します。
-            </AnimatedText>
+            <p className="text-muted-foreground">
+              自社で試すテーマを、90分で整理します。
+            </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
                 <Link href="/kansai-career">90分 AI導入相談を見る</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/contact">問い合わせる</Link>
+                <Link href="/experience">実績を見る</Link>
               </Button>
             </div>
           </div>
