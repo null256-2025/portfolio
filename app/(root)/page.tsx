@@ -26,8 +26,9 @@ export const metadata: Metadata = {
 };
 
 const proofExperienceIds = [
-  "generative-ai-workshop-for-companies-and-communities",
-  "interview-buddy-ai-coach",
+  "teqs-creative-ai-20251205",
+  "ext-seminar-20250226",
+  "ext-seminar-20240711",
   "publication-20250331",
 ] as const;
 
@@ -179,32 +180,6 @@ export default function IndexPage() {
                   priority
                 />
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border bg-background p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                    所要時間
-                  </p>
-                  <p className="mt-2 text-lg font-semibold">90分</p>
-                </div>
-                <div className="rounded-2xl border bg-background p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                    価格
-                  </p>
-                  <p className="mt-2 text-lg font-semibold">3万円〜</p>
-                </div>
-                <div className="rounded-2xl border bg-background p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                    申込み先
-                  </p>
-                  <p className="mt-2 text-lg font-semibold">/contact</p>
-                </div>
-                <div className="rounded-2xl border bg-background p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                    持ち帰り
-                  </p>
-                  <p className="mt-2 text-lg font-semibold">業務・範囲・次の一歩</p>
-                </div>
-              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -319,11 +294,8 @@ export default function IndexPage() {
             <AnimatedText as="h2" className="font-heading text-3xl sm:text-4xl">
               相談の背景になる実績
             </AnimatedText>
-            <AnimatedText as="p" delay={0.1} className="text-muted-foreground">
-              作品一覧ではなく、企業向け相談に近い実績を優先して掲載しています。
-            </AnimatedText>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {proofExperiences.map((experience, index) => {
               const thumbnailSrc =
                 experience.thumbnailUrl ??
